@@ -6,17 +6,16 @@ O **HAL10K** foi desenvolvido "from scratch", sem tomar como base nenhum dos ago
 
 **Contato**: @[intrd](http://twitter.com/intrd) at Twitter or email [contact@dann.com.br](mailto:contact@dann.com.br)
 **Doações**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)
-
 Estou aberto à dúvidas/sugestões, qualquer colaboração no código será bem vinda.
 O autor e seus contribuintes deste projeto não se responsabilizam por eventuais perdas.
 
 **Tks to**
-- @thaleslaray
-- @rafaelchaguri
-- Wladimir Crippa: [http://nerdices.com.br/](http://nerdices.com.br/)
-- Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR)
-- FB Comunidade Bitcoin Brasil: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694)
-- Reddit: [/r/bitcoin](http://www.reddit.com/r/bitcoin)
+- @thaleslaray*
+- @rafaelchaguri*
+- Wladimir Crippa: [http://nerdices.com.br/](http://nerdices.com.br/)*
+- Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR)*
+- FB Comunidade Bitcoin Brasil: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694)*
+- Reddit: [/r/bitcoin](http://www.reddit.com/r/bitcoin)*
 
 ## Exemplo de backtesting
 
