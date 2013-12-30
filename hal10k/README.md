@@ -19,6 +19,11 @@ The author of this project and its contributors are not responsible for any loss
    - Facebook Bitcoin Brasil community: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
    - Reddit: [/r/bitcoin](http://www.reddit.com/r/bitcoin) 
 
+## WEB Controle panel
+
+![](http://dann.com.br/web.png)
+Live statistics, sudden and death mode remote control
+
 ## Backtesting sample
 
 ![](http://dann.com.br/chart_sample.png)
@@ -34,7 +39,6 @@ The author of this project and its contributors are not responsible for any loss
 >$ask [btc0/usd:795.73] @ $701 (lucro) #transaction  
 >$bid [btc1.14/usd:0] @ $701 (nulo) #transaction     
 >Finalizando com 1.14 BTC @ 701 
-`
 
 ## Twitter notifications sample
 
