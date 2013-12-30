@@ -59,6 +59,7 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
    - dire - Quantidade de intervalos passados usados na identificação da direção de mercado;   
    - dire_limbo - Variação mínima em USD para definir se a direção já saiu ou nao do Limbo(momento em que o bot ainda não conseguiu definir uma direção);     
    - vol_limbo - Volume mínimo para considerar uma alteração anormal no volume de um intervalo para outro;     
+* Backtesting
    - fake - Liga/desliga a simulação (Backtesting); (ATENÇÃO)    
    - fake_btc_balance - Quantidade inicial de BTC para a simulação;    
    - fake_btc_usd_buyedprice - Preço inicial de compra do BTC fake balance;    
