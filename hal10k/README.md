@@ -36,10 +36,9 @@ $bid [btc1.14/usd:0] @ $701 (nulo) #transaction
 Finalizando com 1.14 BTC @ 701 
 `
 
-### Main features & configs
-
-**Exchanges suportadas**   
-* MTGox (caso ainda não possua acesso a API do gox, acesse: https://www.mtgox.com/security e crie sua chave (com permissões de leitura/escrita));    
+**Main features & configs**
++Exchanges suportadas   
+- MTGox (caso ainda não possua acesso a API do gox, acesse: https://www.mtgox.com/security e crie sua chave (com permissões de leitura/escrita));    
 **Log de resultados em Texto**    
 **Beeps sonoros ao executar transações (diferenciados para lucros/perdas)**    
 **Parâmetros de trading**  
