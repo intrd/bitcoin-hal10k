@@ -9,13 +9,13 @@ O **HAL10K** foi desenvolvido "from scratch", sem tomar como base nenhum dos ago
 Estou aberto à dúvidas/sugestões, qualquer colaboração no código será bem vinda.    
 O autor e seus contribuintes deste projeto não se responsabilizam por eventuais perdas.     
 
-**Tks to**
-* @thaleslaray 
-* @rafaelchaguri 
-* Wladimir Crippa: [http://nerdices.com.br/](http://nerdices.com.br/) 
-* Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR) 
-* FB Comunidade Bitcoin Brasil: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
-* Reddit: [/r/bitcoin](http://www.reddit.com/r/bitcoin) 
+* Tks to
+   - @thaleslaray 
+   - @rafaelchaguri 
+   - Wladimir Crippa: [http://nerdices.com.br/](http://nerdices.com.br/) 
+   - Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR) 
+   - FB Comunidade Bitcoin Brasil: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
+   - Reddit: [/r/bitcoin](http://www.reddit.com/r/bitcoin) 
 
 ## Exemplo de backtesting
 
