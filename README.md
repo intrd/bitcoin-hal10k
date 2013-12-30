@@ -9,13 +9,13 @@ O **HAL10K** foi desenvolvido "from scratch", sem tomar como base nenhum dos ago
 Estou aberto à dúvidas/sugestões, qualquer colaboração no código será bem vinda.    
 O autor e seus contribuintes deste projeto não se responsabilizam por eventuais perdas.     
 
-**Tks to**
-* @thaleslaray 
-* @rafaelchaguri 
-* Wladimir Crippa: [http://nerdices.com.br/](http://nerdices.com.br/) 
-* Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR) 
-* FB Comunidade Bitcoin Brasil: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
-* Reddit: [/r/bitcoin](http://www.reddit.com/r/bitcoin) 
+* Tks to
+   - @thaleslaray 
+   - @rafaelchaguri 
+   - Wladimir Crippa: [http://nerdices.com.br/](http://nerdices.com.br/) 
+   - Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR) 
+   - FB Comunidade Bitcoin Brasil: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
+   - Reddit: [/r/bitcoin](http://www.reddit.com/r/bitcoin) 
 
 ## Exemplo de backtesting
 
@@ -33,6 +33,10 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
 >$bid [btc1.14/usd:0] @ $701 (nulo) #transaction     
 >Finalizando com 1.14 BTC @ 701 
 `
+
+## Exemplo de notificações no Twitter
+
+![](http://dann.com.br/hal_twitter.png)
 
 ## Main features & configs
 
@@ -71,16 +75,16 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
 
 **Instalação e execução**   
 
-O bot deve ser configurado no arquivo "configs.php" e inicializado através do arquivo "hal10k.bat" (edite o "hal10k.bat" p/ corrigir default path: C:\xampp\htdocs\hal10k)   
+O bot deve ser configurado no arquivo "*configs.php*" e inicializado através do arquivo "*hal10k.bat*" (edite o "*hal10k.bat*" p/ corrigir default path: *C:\xampp\htdocs\hal10k*)   
 
 Este projeto foi desenvolvido no ambiente descrito abaixo, portanto é recomendável rodar na mesma configuração.     
-    - XAMPP version 1.7.7 (não incluso no projeto)  
-        + Apache 2.2.21 (rodando como serviço)  
-        + PHP 5.3.8 (VC9 X86 32bit thread safe) + PEAR  
+* XAMPP version 1.7.7 (não incluso no projeto)
+   * Apache 2.2.21 (rodando como serviço p/ evitar erros na pChart)   
+   * PHP 5.3.8 (VC9 X86 32bit thread safe) + PEAR   
 
-Libs utilizadas (inclusas no projeto)   
-    + pChart 2.1.3 para geração dos gráficos;   
-    + tmhOAuth para notificações via Twitter;   
+* Libs utilizadas (inclusas no projeto)
+   * pChart 2.1.3 para geração dos gráficos;  
+   * tmhOAuth para notificações via Twitter;  
 
 >HAL10K Bitcoin trading bot
 >@copyright (C) http://dann.com.br - @intrd (Danilo Salles) <contact@dann.com.br>
