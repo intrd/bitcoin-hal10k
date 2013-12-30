@@ -23,8 +23,8 @@ The author of this project and its contributors are not responsible for any loss
 
 ![](http://dann.com.br/chart_sample.png)
 
->Período de simulação: 21/12/2013 até 27/12/2013    
->Iniciando com 1.03161308 BTC @ 700 
+>Período de simulação: 21/12/2013 até 27/12/2013      
+>Iniciando com 1.03161308 BTC @ 700    
 >$ask [btc0/usd:699.43] @ $678 (lucro) #transaction  
 >$bid [btc1.07/usd:0] @ $649.43505 (lucro) #transaction  
 >$ask [btc0/usd:721.03] @ $672.513 (lucro) #transaction  
