@@ -75,7 +75,7 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
 
 **Instalação e execução**   
 
-O bot deve ser configurado no arquivo "*configs.php*" e inicializado através do arquivo "*hal10k.bat*" (edite o "*hal10k.bat*" p/ corrigir default path: *C:\xampp\htdocs\hal10k*)   
+O bot deve ser configurado no arquivo *configs.php* e inicializado através do arquivo *hal10k.bat* (edite o *hal10k.bat* p/ corrigir default path: *C:\xampp\htdocs\hal10k*)   
 
 Este projeto foi desenvolvido no ambiente descrito abaixo, portanto é recomendável rodar na mesma configuração.     
 * XAMPP version 1.7.7 (não incluso no projeto)
