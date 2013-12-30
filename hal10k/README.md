@@ -1,13 +1,13 @@
 # HAL 10K - Trading bot
 
->**HAL10K** é um Bitcoin trading/helper bot escrito em PHP (open source). Ele foi desenvolvido para ser usado sobre a API do MTGox, mas poderá ser facilmente adaptado a outras exchanges. Suas decisões são baseadas em parametros customizáveis e técnicas básicas para análise de mercado. Ele também funciona em modo semi-automático, onde em cada ação de prejuízo(stop-loss) solicita via Twitter a confirmação remota de seu operador. Além do modo "Live Trading" ele também executa simulações "Backtesting" utilizando "Fake Balance" e dados históricos do [http://bitcoincharts.com/charts/mtgoxUSD](http://bitcoincharts.com/charts/mtgoxUSD). Todas suas ações(compra/venda) e alertas(volumes altos detectados) são notificados via Twitter. Seu log de resultados é acompanhado através de painel de controle HTTP onde o bot exibe seu próprio gráfico de desempenho.
+**HAL10K** é um Bitcoin trading/helper bot escrito em PHP (open source). Ele foi desenvolvido para ser usado sobre a API do MTGox, mas poderá ser facilmente adaptado a outras exchanges. Suas decisões são baseadas em parametros customizáveis e técnicas básicas para análise de mercado. Ele também funciona em modo semi-automático, onde em cada ação de prejuízo(stop-loss) solicita via Twitter a confirmação remota de seu operador. Além do modo "Live Trading" ele também executa simulações "Backtesting" utilizando "Fake Balance" e dados históricos do [http://bitcoincharts.com/charts/mtgoxUSD](http://bitcoincharts.com/charts/mtgoxUSD). Todas suas ações(compra/venda) e alertas(volumes altos detectados) são notificados via Twitter. Seu log de resultados é acompanhado através de painel de controle HTTP onde o bot exibe seu próprio gráfico de desempenho.
 
->O **HAL10K** foi desenvolvido "from scratch", sem tomar como base nenhum dos agorítmos/técnicas de trading existentes na rede. Este projeto é um exercício de aprendizagem em Trading/Economia para mim, minha experiência se resume em programação e ao Bitcoin. Sim, eu já estou obtendo lucros reais com este Trading bot, e a ideia de abrir o código fonte partiu do princípio de que compartilhando experiências, juntos poderemos melhorar muito o algorítmo e conseguir lucros ainda maiores.
+O **HAL10K** foi desenvolvido "from scratch", sem tomar como base nenhum dos agorítmos/técnicas de trading existentes na rede. Este projeto é um exercício de aprendizagem em Trading/Economia para mim, minha experiência se resume em programação e ao Bitcoin. Sim, eu já estou obtendo lucros reais com este Trading bot, e a ideia de abrir o código fonte partiu do princípio de que compartilhando experiências, juntos poderemos melhorar muito o algorítmo e conseguir lucros ainda maiores.
 
->**Contato**: @[intrd](http://twitter.com/intrd) at Twitter or email [contact@dann.com.br](mailto:contact@dann.com.br)
->**Doações**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)
->Estou aberto à dúvidas/sugestões, qualquer colaboração no código será bem vinda. 
->O autor e seus contribuintes deste projeto não se responsabilizam por eventuais perdas. 
+**Contato**: @[intrd](http://twitter.com/intrd) at Twitter or email [contact@dann.com.br](mailto:contact@dann.com.br)
+**Doações**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)   
+Estou aberto à dúvidas/sugestões, qualquer colaboração no código será bem vinda.    
+O autor e seus contribuintes deste projeto não se responsabilizam por eventuais perdas.     
 
 **Tks to**
 * @thaleslaray 
@@ -21,20 +21,18 @@
 
 ![](http://dann.com.br/chart_sample.png)
 
-`
-Período de simulação: 21/12/2013 até 27/12/2013
-Transactions log
-Iniciando com 1.03161308 BTC @ 700
-$ask [btc0/usd:699.43] @ $678 (lucro) #transaction
-$bid [btc1.07/usd:0] @ $649.43505 (lucro) #transaction
-$ask [btc0/usd:721.03] @ $672.513 (lucro) #transaction
-$bid [btc1.08/usd:0] @ $665.41 (lucro) #transaction
-$ask [btc0/usd:775.37] @ $718.795 (lucro) #transaction
-$bid [btc1.14/usd:0] @ $679.995 (lucro) #transaction
-$ask [btc0/usd:795.73] @ $701 (lucro) #transaction
-$bid [btc1.14/usd:0] @ $701 (nulo) #transaction
-Finalizando com 1.14 BTC @ 701
-`
+>Período de simulação: 21/12/2013 até 27/12/2013
+>Transactions log
+>Iniciando com 1.03161308 BTC @ 700
+>$ask [btc0/usd:699.43] @ $678 (lucro) #transaction
+>$bid [btc1.07/usd:0] @ $649.43505 (lucro) #transaction
+>$ask [btc0/usd:721.03] @ $672.513 (lucro) #transaction
+>$bid [btc1.08/usd:0] @ $665.41 (lucro) #transaction
+>$ask [btc0/usd:775.37] @ $718.795 (lucro) #transaction
+>$bid [btc1.14/usd:0] @ $679.995 (lucro) #transaction
+>$ask [btc0/usd:795.73] @ $701 (lucro) #transaction
+>$bid [btc1.14/usd:0] @ $701 (nulo) #transaction
+>Finalizando com 1.14 BTC @ 701
 
 ### Main features & configs
 
