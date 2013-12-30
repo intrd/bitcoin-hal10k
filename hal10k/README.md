@@ -1,4 +1,4 @@
-# HAL 10K - Trading bot
+# HAL 10K - PHP Open source Trading bot
 
 After losing some money on Bitcoin exchanges, I decided to develop my own Trading bot/helper. This bot acts with pre-defined parameters based on statistics and not with the emotion of the moment, so it's much easier to perform trading operations.
 
