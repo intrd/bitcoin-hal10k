@@ -84,11 +84,9 @@ Libs utilizadas (inclusas no projeto)
 
 >HAL10K Bitcoin trading bot
 >@copyright (C) http://dann.com.br - @intrd (Danilo Salles) <contact@dann.com.br>
->
 >HAL10K is free software; you can redistribute it and/or
 >modify it under the terms of the GNU General Public License 2
 >as published by the Free Software Foundation.
-> 
 >HAL10K is distributed in the hope that it will be useful,
 >but WITHOUT ANY WARRANTY; without even the implied warranty of
 >MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
