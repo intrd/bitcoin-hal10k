@@ -34,6 +34,10 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
 >Finalizando com 1.14 BTC @ 701 
 `
 
+## Exemplo de notificações no Twitter
+
+![](http://dann.com.br/hal_twitter.png)
+
 ## Main features & configs
 
 * Exchanges
