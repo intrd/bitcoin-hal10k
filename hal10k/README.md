@@ -21,26 +21,26 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
 
 ![](http://dann.com.br/chart_sample.png)
 
->Período de simulação: 21/12/2013 até 27/12/2013
->Transactions log
->Iniciando com 1.03161308 BTC @ 700
->$ask [btc0/usd:699.43] @ $678 (lucro) #transaction
->$bid [btc1.07/usd:0] @ $649.43505 (lucro) #transaction
->$ask [btc0/usd:721.03] @ $672.513 (lucro) #transaction
->$bid [btc1.08/usd:0] @ $665.41 (lucro) #transaction
->$ask [btc0/usd:775.37] @ $718.795 (lucro) #transaction
->$bid [btc1.14/usd:0] @ $679.995 (lucro) #transaction
->$ask [btc0/usd:795.73] @ $701 (lucro) #transaction
->$bid [btc1.14/usd:0] @ $701 (nulo) #transaction
->Finalizando com 1.14 BTC @ 701
+>Período de simulação: 21/12/2013 até 27/12/2013    
+>Transactions log   
+>Iniciando com 1.03161308 BTC @ 700 
+>$ask [btc0/usd:699.43] @ $678 (lucro) #transaction 
+>$bid [btc1.07/usd:0] @ $649.43505 (lucro) #transaction 
+>$ask [btc0/usd:721.03] @ $672.513 (lucro) #transaction 
+>$bid [btc1.08/usd:0] @ $665.41 (lucro) #transaction    
+>$ask [btc0/usd:775.37] @ $718.795 (lucro) #transaction 
+>$bid [btc1.14/usd:0] @ $679.995 (lucro) #transaction   
+>$ask [btc0/usd:795.73] @ $701 (lucro) #transaction 
+>$bid [btc1.14/usd:0] @ $701 (nulo) #transaction    
+>Finalizando com 1.14 BTC @ 701 
 
 ### Main features & configs
 
-**- Exchanges suportadas**   
+*Exchanges suportadas   
     + MTGox (caso ainda não possua acesso a API do gox, acesse: https://www.mtgox.com/security e crie sua chave (com permissões de leitura/escrita));    
-**- Log de resultados em Texto;**   
-**- Beeps sonoros ao executar transações (diferenciados para lucros/perdas)**   
-**- Parâmetros de trading** 
+*Log de resultados em Texto;    
+*Beeps sonoros ao executar transações (diferenciados para lucros/perdas)    
+*Parâmetros de trading  
     + up_diff - (venda) pontos de lucro em USD acima do preço de compra;    
     + up_diff_inv - (venda) stop de prejuízo em USD abaixo do preço de compra;  
     + down_diff - (compra) pontos de lucro em USD abaixo do preço de venda;     
@@ -58,14 +58,14 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
     + fake - Liga/desliga a simulação (Backtesting); (AO DESATIVAR O BACKTESTING VOCÊ IRÁ ATIVAR O LIVE TRADING, MUITA ATENÇÃO)    
     + fake_btc_balance - Quantidade inicial de BTC para a simulação;    
     + fake_btc_usd_buyedprice - Preço inicial de compra do BTC fake balance;    
-**- Notificações via Twitter**  
+*Notificações via Twitter  
     + enable_tweet - Ativa/desativa notificações;   
     + twitter_oauth - dados para acesso a API do Twitter, caso não possua, acesse: https://dev.twitter.com/apps e crie sua chave;  
     + twitter_users - @usuários do Twitter que deverão ser notificados;     
     + Notificações de alto volume via twitter;  
-**- Interface gráfica** 
+*Interface gráfica 
     + Log de resultados Gráfico (período, last action, asks/bids);  
-    **- HTTP control**  
+    *HTTP control  
         + Sudden mode (Ativa o sudden mode imediatamente, a password são os dois dígitos do minuto do datetime exibido no cabeçalho acima do gráfico, ex: 01 para o datetime: 2013-12-30 04:01:18, foi feito desta forma para impedir que você execute o sudden duas vezes acidentalmente num refresh da página);  
         + Death mode (Desliga o bot temporariamente, a Password é "meuovo123654", pode ser alterada no arquivo: makesudden.php)     
 
