@@ -6,6 +6,7 @@ O **HAL10K** foi desenvolvido "from scratch", sem tomar como base nenhum dos ago
 
 **Contato**: @[intrd](http://twitter.com/intrd) at Twitter or email [contact@dann.com.br](mailto:contact@dann.com.br)
 **Doações**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)
+
 Estou aberto à dúvidas/sugestões, qualquer colaboração no código será bem vinda.
 O autor e seus contribuintes deste projeto não se responsabilizam por eventuais perdas.
 
