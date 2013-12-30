@@ -21,6 +21,7 @@ if (isset($_SERVER["REMOTE_ADDR"])) { die; };
 require $root."/twitter_api/tmhOAuthExamples-master/tmhOAuthExample.php"; $tmhOAuth = new tmhOAuthExample();
 $mtGoxClient = new MtGoxClient($gox["app_id"],$gox["app_secret"]);
 
+$replace=false;
 $infodata=get_infodataf($fake); $info=get_infodata($infodata,$fake,$replace);
 $ticker=get_tickerf($fake); $ticker=get_ticker($ticker,$fake);
 

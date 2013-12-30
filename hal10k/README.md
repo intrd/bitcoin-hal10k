@@ -1,23 +1,25 @@
 # HAL 10K - Trading bot
 
-**HAL10K** é um Bitcoin trading/helper bot escrito em PHP (open source). Ele foi desenvolvido para ser usado sobre a API do MTGox, mas poderá ser facilmente adaptado a outras exchanges. Suas decisões são baseadas em parametros customizáveis e técnicas básicas para análise de mercado. Ele também funciona em modo semi-automático, onde em cada ação de prejuízo(stop-loss) solicita via Twitter a confirmação remota de seu operador. Além do modo "Live Trading" ele também executa simulações "Backtesting" utilizando "Fake Balance" e dados históricos do [http://bitcoincharts.com/charts/mtgoxUSD](http://bitcoincharts.com/charts/mtgoxUSD). Todas suas ações(compra/venda) e alertas(volumes altos detectados) são notificados via Twitter. Seu log de resultados é acompanhado através de painel de controle HTTP onde o bot exibe seu próprio gráfico de desempenho.
+After losing some money on Bitcoin exchanges, I decided to develop my own Trading bot/helper. This bot acts with pre-defined parameters based on statistics and not with the emotion of the moment, so it's much easier to perform trading operations.
 
-O **HAL10K** foi desenvolvido "from scratch", sem tomar como base nenhum dos agorítmos/técnicas de trading existentes na rede. Este projeto é um exercício de aprendizagem em Trading/Economia para mim, minha experiência se resume em programação e ao Bitcoin. Sim, eu já estou obtendo lucros reais com este Trading bot, e a ideia de abrir o código fonte partiu do princípio de que compartilhando experiências, juntos poderemos melhorar muito o algorítmo e conseguir lucros ainda maiores.
+**HAL10K** is a Bitcoin trading/helper bot written in PHP (open source). It was developed to be used on the API MtGox, but can be easily adapted to other exchanges. Their decisions are based on customizable parameters and basic techniques for market analysis. It also works in semi-automatic mode, in which each loss(stop-loss) asks via Twitter for remote confirmation of a bot operator. Besides the "Live Trading" so it also runs simulations "Backtesting" using "Fake Balance" and historical raw data from **BitcoinCharts.com**. All bot actions(buying/selling) and alerts(high volume detected) are notified via Twitter. Log results is accompanied by HTTP control where the bot displays its own performance chart panel.
 
-**Contato**: @[intrd](http://twitter.com/intrd) at Twitter or email [contact@dann.com.br](mailto:contact@dann.com.br)   
-**Doações**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)   
-Estou aberto à dúvidas/sugestões, qualquer colaboração no código será bem vinda.    
-O autor e seus contribuintes deste projeto não se responsabilizam por eventuais perdas.     
+**HAL10K** was developed "from scratch", without taking as none basis of existing algorithms/trading techniques. This project is a learning exercise for Trading/Economics for me, my experience is limited in programming and Bitcoin. Yes, I'm already getting real profits with this trading bot, and the idea of ​​open source code assumed that sharing experiences, together we can greatly improve the algorithm and achieve even greater profits.
+
+**Contact**: @[intrd](http://twitter.com/intrd) at Twitter or [http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/](http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/)   
+**Donations**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)   
+I'm open to questions/suggestions, any collaboration in the code is welcome.
+The author of this project and its contributors are not responsible for any losses.
 
 * Tks to
-   - @thaleslaray 
-   - @rafaelchaguri 
+   - @thaleslaray - Starter investor
+   - @rafaelchaguri - Beta tester 
    - Wladimir Crippa: [http://nerdices.com.br/](http://nerdices.com.br/) 
    - Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR) 
-   - FB Comunidade Bitcoin Brasil: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
+   - Facebook Bitcoin Brasil community: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
    - Reddit: [/r/bitcoin](http://www.reddit.com/r/bitcoin) 
 
-## Exemplo de backtesting
+## Backtesting sample
 
 ![](http://dann.com.br/chart_sample.png)
 
@@ -34,59 +36,74 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
 >Finalizando com 1.14 BTC @ 701 
 `
 
-## Exemplo de notificações no Twitter
+## Twitter notifications sample
 
 ![](http://dann.com.br/hal_twitter.png)
+
+Bot notifying your operator a large volume that just happened;
+Bot requesting help on Stop-Loss decision;
+Bot informing a purchase(loss) made ​​starting from a Sudden Mode remote command, Buying 1.03BTC when the value of btc/usd was at 830USD.
 
 ## Main features & configs
 
 * Exchanges
-   - MTGox API (caso ainda não possua acesso a API do gox, acesse: https://www.mtgox.com/security e crie sua chave (com permissões de leitura/escrita)); 
-* Log de resultados em Texto
-* Beeps sonoros ao executar transações (diferenciados para lucros/perdas)
-* Parâmetros de trading
-   - up_diff - (venda) pontos de lucro em USD acima do preço de compra;    
-   - up_diff_inv - (venda) stop de prejuízo em USD abaixo do preço de compra;  
-   - down_diff - (compra) pontos de lucro em USD abaixo do preço de venda;     
-   - down_diff_inv - (compra) stop de prejuízo em USD acima do preço de venda;     
-   - percentual - Percentual mínimo de lucro na compra (Use sempre o valor da fee atual aplicada pelo MTGox, defina o lucro real na variável up_diff);    
-   - secure_ticker - Valor de segurança que impede o bot de fazer vendas abaixo de um valor determinado;   
-   - interval - Intervalo do loop do bot (em segundos);    
-   - timeout - Timeout em sergundos p/ conclusão da compra/venda;  
-   - sudden_mode - Quando ativo, faz a compra no preço de venda e a venda no preço de compra. Usado apenas quando existe a necessidade de processamento imediato da ordem. Desativado após a ordem ser processada; (ATENÇÃO)     
-   - reverse_prices - O mesmo que o Sudden, porém definitivo. (ATENÇÃO)    
-   - manualstoploss - Quando ativo, em cada ação de stop-loss solicita a confirmação remota de seu operador; (ATENÇÃO)    
-   - dire - Quantidade de intervalos passados usados na identificação da direção de mercado;   
-   - dire_limbo - Variação mínima em USD para definir se a direção já saiu ou nao do Limbo(momento em que o bot ainda não conseguiu definir uma direção);     
-   - vol_limbo - Volume mínimo para considerar uma alteração anormal no volume de um intervalo para outro;     
+   - MTGox API (MTGox app data. If you do not have access to the API gox, visit: https://www.mtgox.com/security and create your key (with read/write)); 
+* Text result logs
+* Audible beeps when running transactions (differentiated for profits/losses)
+* Trading parameters
+   - up_diff - (sell) points profit (in USD) above the purchase price;   
+   - up_diff_inv - (sell) stop loss (in USD) below the purchase price; 
+   - down_diff - (buy) points profit (in USD) below the selling price;    
+   - down_diff_inv - (buy) stop loss (in USD) above the selling price;     
+   - percentual - Minimum percentage of profit on the purchase (Use the current fee applied by MtGox);    
+   - secure_ticker - Security value that prevents the bot to make sales below a certain value;   
+   - interval - Bot loop interval (in seconds);   
+   - timeout - Timeout in seconds for completion of the bid/ask;  
+   - sudden_mode - When active, the bot makes a purchase at the sale price, or a sale at the purchase price. Used only when there is a need for immediate order processing. It will be disabled after the order is processed; (ATTENTION)      
+   - reverse_prices - Same as Sudden, but definite. It will never turned off; (ATTENTION)    
+   - manualstoploss - When active, in every action stop-loss requests remote confirmation of the bot operator; (ATTENTION)    
+   - dire - Amount of past intervals used in the identification of market direction;   
+   - dire_limbo - Minimum variation (in USD) to define whether the direction is out of limbo or not (limbo: when the bot still trying to set the direction of the market);     
+   - vol_limbo - Minimum volume (in USD) to consider an abnormal change at the volume of an interval to another;     
 * Backtesting
-   - fake - Liga/desliga a simulação (Backtesting); (ATENÇÃO)    
-   - fake_btc_balance - Quantidade inicial de BTC para a simulação;    
-   - fake_btc_usd_buyedprice - Preço inicial de compra do BTC fake balance;    
-   - fakegox_tickers - Acesse http://bitcoincharts.com/charts/mtgoxUSD, e defina o período que deseja simular. Necessita ser um período que suporte intervalo de 1min, clique em Raw Data (copie/cole o conteúdo da tabela num txt e substituia as tabulações por "," vírgula);
+   - fake - Turns on/off simulation (backtesting); (ATTENTION)    
+   - fake_btc_balance - Initial amount of BTC for the simulation;    
+   - fake_btc_usd_buyedprice - Initial purchase price of BTC fake balance;    
+   - fake_datetime_of_firstbid - //Initial datetime (same as first line of fakegox_tickers file below);
+   - fakegox_tickers - Access http://bitcoincharts.com/charts/mtgoxUSD, set the period (must be a period that supports interval 1min), click Raw Data, copy/paste the contents of the table in a TXT file and replaces tabulations by "," comma);
 * Notificações via Twitter
-   - enable_tweet - Ativa/desativa notificações;   
-   - twitter_oauth - dados para acesso a API do Twitter, caso não possua, acesse: https://dev.twitter.com/apps e crie sua chave;  
-   - twitter_users - @usuários do Twitter que deverão ser notificados;     
-   - Notificações de altos volumes via twitter;  
-* Interface gráfica
-   - Log de resultados Gráfico (período, last action, asks/bids);  
-  * HTTP control
-         - Sudden mode (Ativa o sudden mode imediatamente, a password são os dois dígitos do minuto do datetime exibido no cabeçalho acima do gráfico, ex: 01 para o datetime: 2013-12-30 04:01:18, foi feito desta forma para impedir que você execute o sudden duas vezes acidentalmente num refresh da página);  
-         - Death mode (Desliga o bot temporariamente, a Password é "meuovo123654", pode ser alterada no arquivo: makesudden.php)     
+   - enable_tweet - Enable/disable Twitter notifications;   
+   - twitter_oauth - Data to access the Twitter API, if you do not have, go to: https://dev.twitter.com/apps and create your key w/ read/write permission access;
+   - twitter_users - Twitter @users to be notified;     
+   - Alert bot operator on high volumes;  
+* Graphic WEB interface
+   - Graphic results log (period, last action, asks/bids);  
+  * HTTP control panel
+         - Sudden mode (Activates sudden mode immediately, password is the two digit minute of the datetime displayed in the header above the chart, eg: "01" for datetime: 2013-12-30 04:01:18. It was done this way to prevent you run sudden-mode twice accidentally on a refresh page);  
+         - Death mode (Freeze the bot temporarily. The Password is "meuovo123654", can be changed in the file: makesudden.php)     
 
-**Instalação e execução**   
+**Notes**
+- The bot needs at least one bid and ask to generate the graphic chart correctly.
+- MtGox need at least 0.02BTC to process a transaction.
 
-O bot deve ser configurado no arquivo *configs.php* e inicializado através do arquivo *hal10k.bat* (edite o *hal10k.bat* p/ corrigir default path: *C:\xampp\htdocs\hal10k*)   
+**Todo**
+- Paper live trading (fake trading with live data)
+- Implement Bitstamp and BTC-e API
+- Auto fetch BitcoinCharts data via cUrl
+- Implement advanced trading technics
 
-Este projeto foi desenvolvido no ambiente descrito abaixo, portanto é recomendável rodar na mesma configuração.     
-* XAMPP version 1.7.7 (não incluso no projeto)
-   * Apache 2.2.21 (rodando como serviço p/ evitar erros na pChart)   
+**Installing and running**   
+
+Must be configured in *configs.php* and started on *hal10k.bat* (remember to edit *hal10k.bat* to correct default path: *C:\xampp\htdocs\hal10k*)   
+
+This project was developed in the environment described below, so please try to use a similar configuration
+* XAMPP version 1.7.7 (not included in the project)
+   * Apache 2.2.21 (running as service to avoid strange problems in pChart lib)   
    * PHP 5.3.8 (VC9 X86 32bit thread safe) + PEAR   
 
-* Libs utilizadas (inclusas no projeto)
-   * pChart 2.1.3 para geração dos gráficos;  
-   * tmhOAuth para notificações via Twitter;  
+* Libs utilizadas (included in the project)
+   * pChart 2.1.3 for graphics generation;  
+   * tmhOAuth for Twitter notifications;  
 
 >HAL10K Bitcoin trading bot
 >@copyright (C) http://dann.com.br - @intrd (Danilo Salles) <contact@dann.com.br>

@@ -20,7 +20,7 @@
 	$root=dirname(__FILE__);
 	$datadir=$root."/data/";
 
-	/* Local data files */
+	/* Local data files (No need to change) */
 	$settings=$datadir."settings.ini"; //Filename of runtime settings;
 	$nextmov=$datadir."next_mov.csv"; //Filename of next move text
 	$datachart=$datadir."data.csv"; //Filename of btc-usd pricelog (for chart use)
@@ -30,43 +30,43 @@
 	$lastfile=$datadir."last.txt"; //Filename of last action control file
 	$fake_index=$datadir."fake_index.txt"; //Filename of backtesting index buffer
 	
-	/* MTGox app data, caso ainda não possua acesso a API do gox, acesse: https://www.mtgox.com/security e crie sua chave (com permissões de leitura/escrita) */
+	/* MTGox app data. If you do not have access to the API gox, visit: https://www.mtgox.com/security and create your key (with read/write) */
 	$gox["app_id"]="XXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
 	$gox["app_secret"]="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 	$login="intrd";
 
 	/* Custom trading algoritm parameters */
-	$percentual=0.45; //Percentual mínimo de lucro na compra (Use a fee atual aplicada pelo MTGox);
-	$up_diff=15; //(venda) pontos de lucro em USD acima do preço de compra;
-	$up_diff_inv=5; //(venda) stop de prejuízo em USD abaixo do preço de compra;
-	$down_diff=15; //(compra) pontos de lucro em USD abaixo do preço de venda;
-	$down_diff_inv=5; //(compra) stop de prejuízo em USD acima do preço de venda;
-	$secure_ticker=300.99500; //Valor de segurança que impede o bot de fazer vendas abaixo de um valor determinado;
-	$interval=1; //Intervalo do loop do bot (em segundos);
-	$timeout=80; //Timeout em sergundos p/ conclusão da compra/venda;
-	$sudden_mode=0; //Quando ativo, faz a compra no preço de venda e a venda no preço de compra. Usado apenas quando existe a necessidade de processamento imediato da ordem. Desativado após a ordem ser processada;
-	$reverse_prices=0; //O mesmo que o Sudden, porém definitivo. Ele nunca é desativado; 
-	$manualstoploss=0; //Quando ativo, em cada ação de stop-loss solicita a confirmação remota de seu operador;
-	$dire=6; //Quantidade de intervalos passados usados na identificação da direção de mercado;
-	$dire_limbo=13; //Variação mínima em USD para definir se a direção já saiu ou nao do lcfirst(str)imbo(momento em que o bot ainda não conseguiu definir uma direção);
-	$vol_limbo=150.78526468; //Volume mínimo para considerar uma alteração anormal no volume de um intervalo para outro;
+	$percentual=0.45; //Minimum percentage of profit on the purchase (Use the current fee applied by MtGox);
+	$up_diff=15; //(sell) points profit (in USD) above the purchase price;
+	$up_diff_inv=5; //(sell) stop loss (in USD) below the purchase price;
+	$down_diff=15; //(buy) points profit (in USD) below the selling price;
+	$down_diff_inv=5; //(buy) stop loss (in USD) above the selling price;
+	$secure_ticker=300.99500; //Security value that prevents the bot to make sales below a certain value;
+	$interval=1; //Bot loop interval (in seconds);
+	$timeout=80; //Timeout in seconds for completion of the bid/ask;
+	$sudden_mode=0; //When active, the bot makes a purchase at the sale price, or a sale at the purchase price. Used only when there is a need for immediate order processing. It will be disabled after the order is processed;
+	$reverse_prices=0; //Same as Sudden, but definite. It will never turned off;
+	$manualstoploss=0; //When active, in every action stop-loss requests remote confirmation of the bot operator;
+	$dire=6; //Amount of past intervals used in the identification of market direction;
+	$dire_limbo=13; //Minimum variation (in USD) to define whether the direction is out of limbo or not (limbo: when the bot still trying to set the direction of the market);
+	$vol_limbo=150.78526468; //Minimum volume (in USD) to consider an abnormal change at the volume of an interval to another;
 	
 	/* Backtesting */
-	$fake=true; //Liga e desliga a simulação (Backtesting);
-	$fake_btc_balance="1.03161308"; //Quantidade inicial de BTC para a simulação;
-	$fake_btc_usd_buyedprice="707.00000"; //Preço inicial de compra do BTC fake balance;
-	$fake_datetime_of_firstbid="2013-12-21 00:01:00";
-	$fakegox_tickers=$datadir."fakegox_tickers(27.12).txt"; //Acesse http://bitcoincharts.com/charts/mtgoxUSD, defina o período, precisa ser um periodo que suporte intervalo de 1min, clique em Raw Data (copie/cole o conteúdo da tabela num txt e substituia as tabulações por "," vírgula); 
+	$fake=true; //Turns on/off simulation (backtesting);
+	$fake_btc_balance="1.03161308"; //Initial amount of BTC for the simulation;
+	$fake_btc_usd_buyedprice="707.00000"; //Initial purchase price of BTC fake balance;
+	$fake_datetime_of_firstbid="2013-12-21 00:01:00"; //Initial datetime (same as first line of $fakegox_tickers file below)
+	$fakegox_tickers=$datadir."fakegox_tickers(27.12).txt"; //Access http://bitcoincharts.com/charts/mtgoxUSD, set the period (must be a period that supports interval 1min), click Raw Data, copy/paste the contents of the table in a TXT file and replaces tabulations by "," comma);
 	
-	/* dados para acesso a API do Twitter, caso não possua, acesse: https://dev.twitter.com/apps e crie sua chave (com permissões de leitura/escrita) */
+	/* Data for accessing the Twitter API, if you do not have go to: https://dev.twitter.com/apps and create your key (with read/write permissions) */
 	$twitter_oauth["consumer_key"]="XXXXXXXXXXXXXXXXXXX";
 	$twitter_oauth["consumer_secret"]="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 	$twitter_oauth["token"]="XXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 	$twitter_oauth["secret"]="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-	$twitter_users="@intrd";
-	$enable_tweet=false;
+	$twitter_users="@intrd"; //Twitter @users to be notified
+	$enable_tweet=false; //enable/disable twitter notifications
 	
-	/* Dados de start p/ a simulação, NÃO ALTERE */
+	/* Format of data for simulation, DO NOT CHANGE */
 	if ($fake){		
 		$default_data="$fake_datetime_of_firstbid,,$fake_btc_usd_buyedprice,bid,preju,7.71,\r\n";
 		wfilenew($datachart,$default_data);
@@ -80,8 +80,9 @@
 		wfilenew($lastfile_clean,$default_data);
 	}
 
-//echo "EDITE OS ARQUIVOS: configs.php e o hal10k.bat"; //REMOVA APÓS EDITAR ESTE CONFIG FILE PELA PRIMEIRA VEZ 
-//sleep(100); //REMOVA APÓS EDITAR ESTE CONFIG FILE PELA PRIMEIRA VEZ
-//die; //REMOVA APÓS EDITAR ESTE CONFIG FILE PELA PRIMEIRA VEZ
+//echo "EDITE OS ARQUIVOS: configs.php e o hal10k.bat"; //REMOVE AFTER EDIT THIS CONFIG FILE FOR THE FIRST TIME 
+//sleep(100); //REMOVE AFTER EDIT THIS CONFIG FILE FOR THE FIRST TIME 
+//die; //REMOVE AFTER EDIT THIS CONFIG FILE FOR THE FIRST TIME 
+//die; //remember to edit hal10k.bat file and define your correct paths ok? 
 
 ?>

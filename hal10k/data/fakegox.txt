@@ -1,1 +1,1 @@
-{"data":{"Login":"intrd","Trade_Fee":0.45,"Wallets":{"BTC":{"Balance":{"value":0}},"USD":{"Balance":{"value":741.06082035384}}}},"trade_mode":"bid","balancing":0}
+{"data":{"Login":"intrd","Trade_Fee":0.45,"Wallets":{"BTC":{"Balance":{"value":1.03161308}},"USD":{"Balance":{"value":0}}}},"trade_mode":"bid","balancing":0}
