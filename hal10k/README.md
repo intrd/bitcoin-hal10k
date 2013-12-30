@@ -41,7 +41,7 @@ Live statistics, sudden and death mode remote control
 >Finalizando com 1.14 BTC @ 701 
 
 ![](http://dann.com.br/console.png)
-Console sample
+>Console sample
 
 ## Twitter notifications sample
 
