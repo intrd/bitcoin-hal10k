@@ -18,6 +18,7 @@ The author of this project and its contributors are not responsible for any loss
    - Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR) 
    - Facebook Bitcoin Brasil community: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
    - Reddit: [/r/bitcoin](http://www.reddit.com/r/bitcoin) 
+   - Bitcoin talk: [hal10k thread](https://bitcointalk.org/index.php?topic=391630)
 
 ## WEB Controle panel & console
 
