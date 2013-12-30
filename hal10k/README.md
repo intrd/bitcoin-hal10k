@@ -98,6 +98,7 @@ Bot informing a purchase(loss) made ​​starting from a Sudden Mode remote com
 - Implement Bitstamp and BTC-e API
 - Auto fetch BitcoinCharts data via cUrl
 - Implement advanced trading technics
+- Implement .bat Windows looping file to a version for Linux Shell script+crontab 
 
 **Installing and running**   
 
