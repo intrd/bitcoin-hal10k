@@ -63,7 +63,7 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
    - fake - Liga/desliga a simulação (Backtesting); (ATENÇÃO)    
    - fake_btc_balance - Quantidade inicial de BTC para a simulação;    
    - fake_btc_usd_buyedprice - Preço inicial de compra do BTC fake balance;    
-   - fakegox_tickers - Acesse http://bitcoincharts.com/charts/mtgoxUSD, e defina o período. Necessita ser um periodo que suporte intervalo de 1min, clique em Raw Data (copie/cole o conteúdo da tabela num txt e substituia as tabulações por "," vírgula);
+   - fakegox_tickers - Acesse http://bitcoincharts.com/charts/mtgoxUSD, e defina o período que deseja simular. Necessita ser um período que suporte intervalo de 1min, clique em Raw Data (copie/cole o conteúdo da tabela num txt e substituia as tabulações por "," vírgula);
 * Notificações via Twitter
    - enable_tweet - Ativa/desativa notificações;   
    - twitter_oauth - dados para acesso a API do Twitter, caso não possua, acesse: https://dev.twitter.com/apps e crie sua chave;  
