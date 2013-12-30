@@ -5,11 +5,8 @@
 O **HAL10K** foi desenvolvido "from scratch", sem tomar como base nenhum dos agorítmos/técnicas de trading existentes na rede. Este projeto é um exercício de aprendizagem em Trading/Economia para mim, minha experiência se resume em programação e ao Bitcoin. Sim, eu já estou obtendo lucros reais com este Trading bot, e a ideia de abrir o código fonte partiu do princípio de que compartilhando experiências, juntos poderemos melhorar muito o algorítmo e conseguir lucros ainda maiores.
 
 **Contato**: @[intrd](http://twitter.com/intrd) at Twitter or email [contact@dann.com.br](mailto:contact@dann.com.br)
-
 **Doações**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)
-
 Estou aberto à dúvidas/sugestões, qualquer colaboração no código será bem vinda.
-
 O autor e seus contribuintes deste projeto não se responsabilizam por eventuais perdas.
 
 **Tks to**
