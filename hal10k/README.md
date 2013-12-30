@@ -53,13 +53,13 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
    - secure_ticker - Valor de segurança que impede o bot de fazer vendas abaixo de um valor determinado;   
    - interval - Intervalo do loop do bot (em segundos);    
    - timeout - Timeout em sergundos p/ conclusão da compra/venda;  
-   - sudden_mode - Quando ativo, faz a compra no preço de venda e a venda no preço de compra. Usado apenas quando existe a necessidade de processamento imediato da ordem. Desativado após a ordem ser processada; (MUITA ATENÇÃO AO ATIVAR ESTA FUNÇÃO)     
-   - reverse_prices - O mesmo que o Sudden, porém definitivo. (MUITA ATENÇÃO AO ATIVAR ESTA FUNÇÃO)    
-   - manualstoploss - Quando ativo, em cada ação de stop-loss solicita a confirmação remota de seu operador; (MUITA ATENÇÃO AO DESATIVAR O MANUAL STOP LOSS)    
+   - sudden_mode - Quando ativo, faz a compra no preço de venda e a venda no preço de compra. Usado apenas quando existe a necessidade de processamento imediato da ordem. Desativado após a ordem ser processada; (ATENÇÃO)     
+   - reverse_prices - O mesmo que o Sudden, porém definitivo. (ATENÇÃO)    
+   - manualstoploss - Quando ativo, em cada ação de stop-loss solicita a confirmação remota de seu operador; (ATENÇÃO)    
    - dire - Quantidade de intervalos passados usados na identificação da direção de mercado;   
    - dire_limbo - Variação mínima em USD para definir se a direção já saiu ou nao do Limbo(momento em que o bot ainda não conseguiu definir uma direção);     
    - vol_limbo - Volume mínimo para considerar uma alteração anormal no volume de um intervalo para outro;     
-   - fake - Liga/desliga a simulação (Backtesting); (AO DESATIVAR O BACKTESTING VOCÊ IRÁ ATIVAR O LIVE TRADING, MUITA ATENÇÃO)    
+   - fake - Liga/desliga a simulação (Backtesting); (ATENÇÃO)    
    - fake_btc_balance - Quantidade inicial de BTC para a simulação;    
    - fake_btc_usd_buyedprice - Preço inicial de compra do BTC fake balance;    
 * Notificações via Twitter
