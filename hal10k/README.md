@@ -75,12 +75,12 @@ O bot deve ser configurado no arquivo "configs.php" e inicializado através do a
 
 Este projeto foi desenvolvido no ambiente descrito abaixo, portanto é recomendável rodar na mesma configuração.     
 * XAMPP version 1.7.7 (não incluso no projeto)
-   Apache 2.2.21 (rodando como serviço p/ evitar erros na pChart)
-   PHP 5.3.8 (VC9 X86 32bit thread safe) + PEAR
+   - Apache 2.2.21 (rodando como serviço p/ evitar erros na pChart)
+   - PHP 5.3.8 (VC9 X86 32bit thread safe) + PEAR
 
 * Libs utilizadas (inclusas no projeto)
-   pChart 2.1.3 para geração dos gráficos;
-   tmhOAuth para notificações via Twitter;
+   - pChart 2.1.3 para geração dos gráficos;
+   - tmhOAuth para notificações via Twitter;
 
 >HAL10K Bitcoin trading bot
 >@copyright (C) http://dann.com.br - @intrd (Danilo Salles) <contact@dann.com.br>
