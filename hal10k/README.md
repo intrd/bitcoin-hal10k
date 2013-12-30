@@ -35,7 +35,7 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
 >Finalizando com 1.14 BTC @ 701 
 `
 
-## Main features & configs**
+## Main features & configs
 
 **Exchanges**
    - MTGox API (caso ainda não possua acesso a API do gox, acesse: https://www.mtgox.com/security e crie sua chave (com permissões de leitura/escrita));    
