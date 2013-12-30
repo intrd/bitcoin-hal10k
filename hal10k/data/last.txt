@@ -1,0 +1,3 @@
+bid,[btc1.03161308/usd:0],707.00000,2013-12-27 12:55:55,preju,#suddenmode,
+ask,[btc0/usd:749.98],727,2013-12-30 03:12:05,lucro,#transaction,
+bid,[btc1.01/usd:0],738.48663,2013-12-30 03:12:09,preju,#suddenmode,
