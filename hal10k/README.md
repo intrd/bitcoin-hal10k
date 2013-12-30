@@ -21,7 +21,6 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
 
 ![](http://dann.com.br/chart_sample.png)
 
-`
 >Período de simulação: 21/12/2013 até 27/12/2013    
 >Iniciando com 1.03161308 BTC @ 700 
 >$ask [btc0/usd:699.43] @ $678 (lucro) #transaction  
@@ -69,7 +68,6 @@ O autor e seus contribuintes deste projeto não se responsabilizam por eventuais
   * HTTP control
          - Sudden mode (Ativa o sudden mode imediatamente, a password são os dois dígitos do minuto do datetime exibido no cabeçalho acima do gráfico, ex: 01 para o datetime: 2013-12-30 04:01:18, foi feito desta forma para impedir que você execute o sudden duas vezes acidentalmente num refresh da página);  
          - Death mode (Desliga o bot temporariamente, a Password é "meuovo123654", pode ser alterada no arquivo: makesudden.php)     
-*
 
 **Instalação e execução**   
 
@@ -84,7 +82,6 @@ Libs utilizadas (inclusas no projeto)
     + pChart 2.1.3 para geração dos gráficos;   
     + tmhOAuth para notificações via Twitter;   
 
-`    
 >HAL10K Bitcoin trading bot
 >@copyright (C) http://dann.com.br - @intrd (Danilo Salles) <contact@dann.com.br>
 >
