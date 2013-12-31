@@ -14,7 +14,7 @@ The author of this project and its contributors are not responsible for any loss
 * Tks to
    - @thaleslaray - Starter investor
    - @rafaelchaguri - Beta tester 
-   - Wladimir Crippa: [http://nerdices.com.br/](http://nerdices.com.br/) 
+   - Wladimir Crippa
    - Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR) 
    - Facebook Bitcoin Brasil community: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
    - Reddit: [/r/bitcoin/hal10k thread](http://www.reddit.com/r/Bitcoin/comments/1u0bd9/hal10k_php_open_source_trading_helper_bot/) 
