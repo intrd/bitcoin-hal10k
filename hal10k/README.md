@@ -17,7 +17,7 @@ The author of this project and its contributors are not responsible for any loss
    - Wladimir Crippa: [http://nerdices.com.br/](http://nerdices.com.br/) 
    - Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR) 
    - Facebook Bitcoin Brasil community: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
-   - Reddit: [/r/bitcoin](http://www.reddit.com/r/bitcoin) 
+   - Reddit: [/r/bitcoin/hal10k thread](http://www.reddit.com/r/Bitcoin/comments/1u0bd9/hal10k_php_open_source_trading_helper_bot/) 
    - Bitcoin talk: [hal10k thread](https://bitcointalk.org/index.php?topic=391630)
 
 ## WEB Controle panel & console
