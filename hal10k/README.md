@@ -95,10 +95,10 @@ Bot informing a purchase(loss) made ​​starting from a Sudden Mode remote com
 - MtGox need at least 0.02BTC to process a transaction.
 
 **Todo**
-- Paper live trading (fake trading with live data)
-- Implement Bitstamp and BTC-e API
+- Implement EMA short/long crossover trading technique
+- Paper trading (fake trading with live data)
+- Implement Vircurex and BTC-e API
 - Auto fetch BitcoinCharts data via cUrl
-- Implement advanced trading technics
 - Implement .bat Windows looping file to a version for Linux Shell script+crontab 
 
 **Installing and running**   
@@ -113,6 +113,10 @@ This project was developed in the environment described below, so please try to 
 * Libs utilizadas (included in the project)
    * pChart 2.1.3 for graphics generation;  
    * tmhOAuth for Twitter notifications;  
+
+**Changelog**
+* v1.0 beta 2
+   * - First public version
 
 >HAL10K Bitcoin trading bot
 >@copyright (C) http://dann.com.br - @intrd (Danilo Salles) <contact@dann.com.br>
