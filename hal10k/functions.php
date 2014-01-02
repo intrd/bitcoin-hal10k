@@ -477,6 +477,7 @@ function get_ticker($ticker,$fake=false){
 	$data["ticker_sell"]=$ticker_sell;
 	$data["ticker_vol"]=$ticker_vol;
 	if ($fake) $data["datetime"]=$ticker["data"]["datetime"]["value"];
+	$fake=false;
 	return $data;
 }
 
