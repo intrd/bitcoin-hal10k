@@ -1,1 +1,4 @@
-bid,[btc1.03161308/usd:0],707.00000,2013-12-27 12:55:55,preju,#suddenmode,
+bid,[btc0.03161308/usd:0],819.00000,2014-01-01 00:00:00,loss,#suddenmode,
+ask,[btc0/usd:24.99],819.89999,2014-01-02 01:59:11,profit,#transaction,
+bid,[btc0.03/usd:0],814.62500,2014-01-02 02:26:49,profit,#transaction,
+ask,[btc:0/usd:24.87],818.18000,2014-01-02 02:41:15,profit,#transaction,

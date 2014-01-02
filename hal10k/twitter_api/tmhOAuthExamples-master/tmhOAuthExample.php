@@ -44,16 +44,16 @@ require $root."/twitter_api/tmhOAuth.php";
 class tmhOAuthExample extends tmhOAuth {
 
   public function __construct($config = array()) {
-
+    global $twitter_oauth; //dan edit
     $this->config = array_merge(
       array(
 
         // change the values below to ones for your application
-        'consumer_key'    => 'XXXXXXXXXXXXXX',
-        'consumer_secret' => 'XXXXXXXXXXXXXXXXXXXX',
-        'token'           => 'XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXX',
-        'secret'          => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-        'bearer'          => 'YOUR_OAUTH2_TOKEN',
+        'consumer_key'    => $twitter_oauth["consumer_key"],
+        'consumer_secret' => $twitter_oauth["consumer_secret"],
+        'token'           => $twitter_oauth["token"],
+        'secret'          => $twitter_oauth["secret"],
+        'bearer'          => 'XXXXXXXXXXXX',
 
         'user_agent'      => 'tmhOAuth ' . parent::VERSION . ' Examples 0.1',
       ),

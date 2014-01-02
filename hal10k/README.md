@@ -1,12 +1,12 @@
 # HAL 10K - PHP Trading bot
 
-After losing some money on Bitcoin exchanges, I decided to develop my own Trading bot/helper. This bot acts with pre-defined parameters based on statistics and not with the emotion of the moment, so it's much easier to perform trading operations.
+After losing some money on Bitcoin exchanges, I decided to develop my own Trading bot/helper. This bot acts with pre-defined parameters based on statistics/strategies and not with the emotion of the moment, so it's much easier to perform trading operations.
 
-**HAL10K** is a Bitcoin trading/helper bot written in PHP (open source). It was developed to be used on the API MtGox, but can be easily adapted to other exchanges. Their decisions are based on customizable parameters and basic techniques for market analysis. It also works in semi-automatic mode, in which each loss(stop-loss) asks via Twitter for remote confirmation of a bot operator. Besides the "Live Trading" so it also runs simulations "Backtesting" using "Fake Balance" and historical raw data from **BitcoinCharts.com**. All bot actions(buying/selling) and alerts(high volume detected) are notified via Twitter. Log results is accompanied by HTTP control where the bot displays its own performance chart panel.
+**HAL10K** is a Bitcoin trading/helper bot written in PHP (open source). It was developed to be used on the API MtGox, but can be easily adapted to other exchanges. Their decisions are based on customizable parameters and trading techniques for market analysis. It also works in semi-automatic mode, in which each loss(stop-loss) asks via Twitter for remote confirmation of a bot operator. Besides the "Live Trading" so it also runs simulations "Backtesting/Paper trading" using "Fake Balance" and historical raw data from **BitcoinCharts.com**. All bot actions(buying/selling) and alerts(high volume detected) are notified via Twitter. Log results is accompanied by HTTP Control panel where the bot displays its own performance chart panel.
 
-**HAL10K** was developed "from scratch", without taking as none basis of existing algorithms/trading techniques. This project is a learning exercise for Trading/Economics for me, my experience is limited in programming and Bitcoin. Yes, I'm already getting real profits with this trading bot, and the idea of ​​open source code assumed that sharing experiences, together we can greatly improve the algorithm and achieve even greater profits.
+**HAL10K** was developed "from scratch", without taking basis of existing algorithms/trading techniques. This project is a learning exercise on Trading/Economics for me, when started this project my experience was limited in programming and Bitcoin. Yes, I'm already getting real profits with this trading bot, and the idea of ​​Open Source assumed that sharing experiences, together we can greatly improve the algorithm and achieve even greater profits.
 
-**Contact**: @[intrd](http://twitter.com/intrd) at Twitter or [http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/](http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/)   
+**Contact**: Twitter @[intrd](http://twitter.com/intrd) or [http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/](http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/)   
 **Donations**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)   
 I'm open to questions/suggestions, any collaboration in the code is welcome.
 The author of this project and its contributors are not responsible for any losses.
@@ -17,20 +17,20 @@ The author of this project and its contributors are not responsible for any loss
    - Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR) 
    - Bitcoin Developers FB community: https://www.facebook.com/groups/bitcoindevelopersbr/204238816428548/
    - Wladimir Crippa & FB Bitcoin Brasil community: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
-   - Reddit: [/r/bitcoin/hal10k thread](http://www.reddit.com/r/Bitcoin/comments/1u0bd9/hal10k_php_open_source_trading_helper_bot/) 
-   - Bitcoin talk: [hal10k thread](https://bitcointalk.org/index.php?topic=391630)
+   - Reddit HAL10k Thread: [/r/bitcoin/hal10k thread](http://www.reddit.com/r/Bitcoin/comments/1u0bd9/hal10k_php_open_source_trading_helper_bot/) 
+   - BitcoinTalk Thread: [hal10k thread](https://bitcointalk.org/index.php?topic=391630)
 
-## WEB Controle panel & console
+## WEB Control panel & console
 
 ![](http://dann.com.br/web.png)
-Live statistics, sudden and death mode remote control
+Live statistics, "Sudden" and "Death mode" remote control.
 
 ## Backtesting sample
 
 ![](http://dann.com.br/chart_sample.png)
 
->Período de simulação: 21/12/2013 até 27/12/2013      
->Iniciando com 1.03161308 BTC @ 700    
+>Period: 21/12/2013 até 27/12/2013      
+>Starting w/ 1.03161308 BTC @ 700    
 >$ask [btc0/usd:699.43] @ $678 (lucro) #transaction  
 >$bid [btc1.07/usd:0] @ $649.43505 (lucro) #transaction  
 >$ask [btc0/usd:721.03] @ $672.513 (lucro) #transaction  
@@ -39,10 +39,15 @@ Live statistics, sudden and death mode remote control
 >$bid [btc1.14/usd:0] @ $679.995 (lucro) #transaction    
 >$ask [btc0/usd:795.73] @ $701 (lucro) #transaction  
 >$bid [btc1.14/usd:0] @ $701 (nulo) #transaction     
->Finalizando com 1.14 BTC @ 701 
+>Ending w/ 1.14 BTC @ 701 
 
 ![](http://dann.com.br/console.png)
 >Console sample
+
+## EMA Short/Long Crossover trading technique
+
+![](http://dann.com.br/EMAchart.png)
+>Perfect for high frequency trading, better than simple trading method
 
 ## Twitter notifications sample
 
@@ -64,7 +69,12 @@ Bot informing a purchase(loss) made ​​starting from a Sudden Mode remote com
    - down_diff - (buy) points profit (in USD) below the selling price;    
    - down_diff_inv - (buy) stop loss (in USD) above the selling price;     
    - percentual - Minimum percentage of profit on the purchase (Use the current fee applied by MtGox);    
-   - secure_ticker - Security value that prevents the bot to make sales below a certain value;   
+   - secure_ticker - Security value that prevents the bot to make sales below a certain value;  
+   - emacross - Turn on EMA crossover method (if emacross=true, Simple Market Direction Method automatically is turned off);
+   - emaShort - EMA short period(in seconds) for EMA crossover method;
+   - emaLong - EMA long period(in seconds) for EMA crossover method;
+   - emaDiff - EMA difference between short and long crossover;
+   - last_two_orders - Base next move on the last two transactions value; 
    - interval - Bot loop interval (in seconds);   
    - timeout - Timeout in seconds for completion of the bid/ask;  
    - sudden_mode - When active, the bot makes a purchase at the sale price, or a sale at the purchase price. Used only when there is a need for immediate order processing. It will be disabled after the order is processed; (ATTENTION)      
@@ -74,7 +84,8 @@ Bot informing a purchase(loss) made ​​starting from a Sudden Mode remote com
    - dire_limbo - Minimum variation (in USD) to define whether the direction is out of limbo or not (limbo: when the bot still trying to set the direction of the market);     
    - vol_limbo - Minimum volume (in USD) to consider an abnormal change at the volume of an interval to another;     
 * Backtesting
-   - fake - Turns on/off simulation (backtesting); (ATTENTION)    
+   - fake - Turns on/off simulation (backtesting); (ATTENTION)
+   - paper - Paper trading is simulation with Real Live Tickers but w/ fake money balance. (If Paper trading is true, $fake needs to be defined to "true")
    - fake_btc_balance - Initial amount of BTC for the simulation;    
    - fake_btc_usd_buyedprice - Initial purchase price of BTC fake balance;    
    - fake_datetime_of_firstbid - //Initial datetime (same as first line of fakegox_tickers file below);
@@ -95,11 +106,11 @@ Bot informing a purchase(loss) made ​​starting from a Sudden Mode remote com
 - MtGox need at least 0.02BTC to process a transaction.
 
 **Todo**
-- Implement EMA short/long crossover trading technique
-- Paper trading (fake trading with live data)
+- 1-click and run version w/ pre-configured PHP buit-in Webserver for users who do not have programming knowledge
+- MACD
 - Implement Vircurex and BTC-e API
 - Auto fetch BitcoinCharts data via cUrl
-- Implement .bat Windows looping file to a version for Linux Shell script+crontab 
+- Create a version of .bat Windows looping file for Linux using Shell script+crontab 
 
 **Installing and running**   
 
@@ -115,6 +126,12 @@ This project was developed in the environment described below, so please try to 
    * tmhOAuth for Twitter notifications;  
 
 **Changelog**
+* v2.0 beta 1
+   * - New trading technique implemented: EMA short/long crossover
+   * - Paper trading: Differs to Backtesting, its a simulation with Live Tickers but w/ fake money balance.
+   * - Improvements in Clear Log file
+   * - Improvements in en_US translation
+   * - Improvements in Twitter oauth conf
 * v1.0 beta 2
    * - First public version
 

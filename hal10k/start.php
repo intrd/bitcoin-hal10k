@@ -25,7 +25,7 @@ $replace=false;
 $infodata=get_infodataf($fake); $info=get_infodata($infodata,$fake,$replace);
 $ticker=get_tickerf($fake); $ticker=get_ticker($ticker,$fake);
 
-echo "\n*** HAL_10K v1.0 beta 2 (by intrd)";
+echo "\n*** HAL_10K $version (by intrd)";
 echo "\n$ Logged: ".$info["logged"];
 echo " ( BTC: ".$info["btc_balance"];
 echo " / USD: ".$info["usd_balance"]." )";
@@ -46,22 +46,35 @@ while (1==1){
 		echo "\r\n### MANUAL SUDDEN ###\r\n";
 	}
 	if ($fake==false) sleep($interval);
+	if ($paper==true) sleep($interval);
 	$infodata=get_infodataf($fake); $info=get_infodata($infodata,$fake);
 
 	$dt=date("Y-m-d H:i:s");
 	$hora_new=date("i");
 	$ticker=get_tickerf($fake); $ticker=get_ticker($ticker,$fake);
 	$vol=$ticker["ticker_vol"];
-	if ($fake) $dt=$ticker["datetime"];
-	$line=$dt.",,".$ticker["ticker_buy"].",,,$vol,\r\n";
+	if ($fake==true and $paper==false) $dt=$ticker["datetime"];
+	if ($emacross==true and isset($lastema)) { 
+		$lastema=emarket_direction($emacross,$lastema); 
+		if (($lastema["short"]>$lastema["long"]) and ($lastema["short"]-$lastema["long"])>$emaDiff) $ema="up";
+		if (($lastema["short"]<$lastema["long"]) and ($lastema["long"]-$lastema["short"])>$emaDiff) $ema="down";
+	}else { 
+		$lastema["short"]=false;
+		$lastema["long"]=false;
+		$ema="limbo";
+	}
+	if (!($lastema["short"]==false or $lastema["long"]==false)) {
+		$error=true; //POG
+	}
+	$line=$dt.",,".$ticker["ticker_buy"].",,,$vol,".$lastema["short"].",".$lastema["long"].",\r\n";
 	$F1=file($datachart);
 	$hora=end($F1); $hora=explode(",",$hora);
  	$times=date('i', strtotime($hora[0]));
  	$hora_old=$times;
- 	if ($fake) $hora_new="a";
+ 	//if ($fake) $hora_new="a";
+ 	$hora_new="a"; //log every interval remover esta POG
 	if ($hora_old!=$hora_new){
-		wfilew($datachart,$line);
-		
+		if (isset($error)) wfilew($datachart,$line);
 		$voll=vol_anormal(1);
 		if ($voll!=false) {
 			echo "\n*** High volume detected! ".$voll;
@@ -69,7 +82,8 @@ while (1==1){
 		}
 	}
 	
-	$last_order=get_lasttrade_local(false);
+
+	$last_order=get_lasttrade_local($last_two_orders);
 	$ticker=get_tickerf($fake); $ticker=get_ticker($ticker,$fake);
 	
 	if (1==1){
@@ -81,13 +95,14 @@ while (1==1){
 			if ($info["trade_mode"]=="ask"){
 				if ($reverse_prices==1) $ticker["ticker_sell"]=$ticker["ticker_buy"];
 				$range=($ticker["ticker_sell"]-($last_order["price"]+$up_diff));
-				$direction="<".market_direction($dire,true)."/down>";
+				//$updown=
+				$direction="<".market_direction($dire,true,$ema)."/down>";
 				$next_price=($last_order["price"]+$up_diff);
 				$stoploss=($last_order["price"]-$up_diff_inv);
 				$nm=status($ticker["ticker_sell"],$info["trade_mode"],$next_price,$stoploss,$last_order["type"],$last_order["price"],$direction,$last_order["prem"]);
 				wfilenew($nextmov,$nm);
-				if (($ticker["ticker_sell"]>=$next_price and market_direction($dire,true)=="down") or ($ticker["ticker_sell"]<=$stoploss and market_direction($dire)=="down") or $sudden_mode==1){
-					if (($ticker["ticker_sell"]<=$stoploss and market_direction($dire)=="down")){
+				if (($ticker["ticker_sell"]>=$next_price and market_direction($dire,true,$ema)=="down") or ($ticker["ticker_sell"]<=$stoploss and market_direction($dire,false,$ema)=="down") or $sudden_mode==1){
+					if (($ticker["ticker_sell"]<=$stoploss and market_direction($dire,false,$ema)=="down")){
 						$wall=1;
 						if ($manualstoploss==0) $sudden_mode=1;
 						echo "\n*** #Hit wall!";
@@ -113,13 +128,13 @@ while (1==1){
 			} else if ($info["trade_mode"]=="bid"){
 				if ($reverse_prices==1) $ticker["ticker_buy"]=$ticker["ticker_sell"];
 				$range=((($last_order["price"]-percentual($percentual,$last_order["price"]))-$down_diff)-$ticker["ticker_buy"]);
-				$direction="<".market_direction($dire,true)."/up>";
+				$direction="<".market_direction($dire,true,$ema)."/up>";
 				$next_price=(($last_order["price"]-percentual($percentual,$last_order["price"]))-$down_diff);
 				$stoploss=(($last_order["price"]+percentual($percentual,$last_order["price"]))+$down_diff_inv);
 				$nm=status($ticker["ticker_buy"],$info["trade_mode"],$next_price,$stoploss,$last_order["type"],$last_order["price"],$direction,$last_order["prem"]);
 				wfilenew($nextmov,$nm);
-				if (($ticker["ticker_buy"]<=$next_price and market_direction($dire,true)=="up") or ($ticker["ticker_buy"]>=$stoploss and market_direction($dire)=="up") or $sudden_mode==1){
-					if (($ticker["ticker_buy"]>=$stoploss and market_direction($dire)=="up")){
+				if (($ticker["ticker_buy"]<=$next_price and market_direction($dire,true,$ema)=="up") or ($ticker["ticker_buy"]>=$stoploss and market_direction($dire,false,$ema)=="up") or $sudden_mode==1){
+					if (($ticker["ticker_buy"]>=$stoploss and market_direction($dire,false,$ema)=="up")){
 						echo "\n*** #Hit wall!";
 						$wall=1;
 						if ($manualstoploss==0) $sudden_mode=1;
@@ -145,10 +160,10 @@ while (1==1){
 				if ($enable_tweet) tweet($tmhOAuth,"Help? $twitter_users ".$line);
 				setset("tweeted",$last_order["price"]);
 			}
-			if ($transa!=false){
+			if ($transa!=false and $transa["status"]!="cancelled"){
 				var_dump($transa);
 				$balancing=$info["balancing"];
-				if ($transa["prem"]=="lucro"){
+				if ($transa["prem"]=="profit"){
 					cli_beep();cli_beep();cli_beep();sleep(1);cli_beep();cli_beep();cli_beep();
 				}else{
 					cli_beep();sleep(1);cli_beep();sleep(1);cli_beep();
@@ -157,7 +172,7 @@ while (1==1){
 				if ($sudden_mode==1) $log="#suddenmode";
 				if ($balancing==1) $log="#unbalancing";
 				$infodata=get_infodataf($fake); $info=get_infodata($infodata,$fake);
-				$wallet_amount="[btc".round($info["btc_balance"],2)."/usd:".round($info["usd_balance"],2)."]";
+				$wallet_amount="[btc:".round($info["btc_balance"],4)."/usd:".round($info["usd_balance"],2)."]";
 				$line="$".$transa["type"]." ".$wallet_amount." @ $".$transa["price"]." (".$transa["prem"].") $log"; 
 				wfile($lastfile_clean,$line);
 				
@@ -169,12 +184,12 @@ while (1==1){
 						wfilew($lastfile,$transa["type"].",".$wallet_amount.",".$transa["price"].",".$transa["datetime"].",".$transa["prem"].",$log,\r\n");
 					}
 					$dt=date("Y-m-d H:i:s");
-					if ($fake) $dt=$ticker["datetime"];
+					if ($fake==true and $paper==false) $dt=$ticker["datetime"];
 					$hora_new=date("i");
 					$pre=$transa["prem"];
 					$vol=$ticker["ticker_vol"];
 					$type=$transa["type"];
-					$line=$dt.",,".$transa["price"].",$type,$pre,$vol,\r\n";
+					$line=$dt.",,".$transa["price"].",$type,$pre,$vol,".$lastema["short"].",".$lastema["long"].",\r\n";
 					wfilew($datachart,$line);
 				}
 				if ($transa["sudden_mode"]==1){

@@ -1,3 +1,6 @@
-Starting HAL10K with 1.03161308 BTC buyd @ 707.00000
+Starting HAL10K with 0.03061308 BTC buyd @ 819.00000
 
-30/12/2013 08:48:40 - ( BTC: 1.03161308 / USD: 0 )
+02/01/2014 01:58:20 - ( BTC: 0.03061308 / USD: 0.00001 )
+$ask [btc0/usd:24.99] @ $819.89999 (profit) #transaction
+$bid [btc0.03/usd:0] @ $814.62500 (profit) #transaction
+$ask [btc:0/usd:24.87] @ $818.18000 (profit) #transaction

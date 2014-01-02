@@ -61,39 +61,91 @@ function vol_anormal($last_minutes){
 	return false;
 }
 
-
-function market_direction($last_minutes,$limbo=false){
+function emarket_direction($emacross=false,$lastema=false){
 	global $datachart;
 	global $dire_limbo;
 	$F1=file($datachart);
 	$total=(count($F1)-1);
-	$c=0;
-	while ($c<=$last_minutes){
-		if (isset($F1[($total-$c)])){
-			$valu=$F1[($total-$c)];
-			$valu=explode(",",$valu);
-			$valu=$valu[2];
-			$values[]=$valu;
+
+	global $emaShort;
+	global $emaLong;
+	if ($emacross and $total>=$emaShort){
+		$c=0;
+		while ($c<=$emaShort){
+			if (isset($F1[($total-$c)])){
+				$valu=$F1[($total-$c)];
+				$valu=explode(",",$valu);
+				$valu=$valu[2];
+				$values[]=round($valu,2);
+			}
+			$c++;
 		}
-		$c++;
+		$values=array_reverse($values);
+		if (count($values)>=$emaShort){
+			if ($lastema["short"]==false) $lastema["short"]=intrd_ma($values,$emaShort);
+		 	$emaShortValue=intrd_ema(end($values),$lastema["short"],$emaShort);
+		 	$lastemas["short"]=round($emaShortValue,2);
+		 	if (!isset($lastemas["long"])){
+		 		$lastemas["long"]=false;
+		 	}
+	 	}
 	}
-	$values=array_reverse($values);
-	//return $values;
+	if ($emacross and $total>=$emaLong){
+		$c=0;
+		while ($c<=$emaLong){
+			if (isset($F1[($total-$c)])){
+				$valu=$F1[($total-$c)];
+				$valu=explode(",",$valu);
+				$valu=$valu[2];
+				$values[]=$valu;
+			}
+			$c++;
+		}
+		$values=array_reverse($values);
+		if (count($values)>=$emaLong){
+			if ($lastema["long"]==false) $lastema["long"]=intrd_ma($values,$emaLong);
+		 	$emaLongValue=intrd_ema(end($values),$lastema["long"],$emaLong);
+		 	$lastemas["long"]=round($emaLongValue,2);
+		 	if (!isset($lastemas["short"])){
+		 		$lastemas["short"]=false;
+		 	}
+	 	}
+	}
+	if (isset($lastemas)) return $lastemas;
+}
 
-	$data["min"]=min($values);
-	$data["end"]=end($values);
-	if ($data["end"]>$data["min"]){
-		$data["direction"]="up";
+function market_direction($last_minutes,$limbo=false,$ema=false){
+	if ($ema) return $ema;
+	global $datachart;
+	global $dire_limbo;
+	$F1=file($datachart);
+	$total=(count($F1)-1);
+		$c=0;
+		while ($c<=$last_minutes){
+			if (isset($F1[($total-$c)])){
+				$valu=$F1[($total-$c)];
+				$valu=explode(",",$valu);
+				$valu=$valu[2];
+				$values[]=$valu;
+			}
+			$c++;
+		}
+		$values=array_reverse($values);
+
 		$data["min"]=min($values);
-	}else{
-		$data["direction"]="down";
-		$data["min"]=max($values);
-	}
-	$ddii=($data["end"]-$data["min"]);
-	//echo "\n\n".abs($ddii)."\n\n";
-	if (abs($ddii)<$dire_limbo and $limbo==true) $data["direction"]=$data["direction"].".li";
+		$data["end"]=end($values);
+		if ($data["end"]>$data["min"]){
+			$data["direction"]="up";
+			$data["min"]=min($values);
+		}else{
+			$data["direction"]="down";
+			$data["min"]=max($values);
+		}
+		$ddii=($data["end"]-$data["min"]);
+		//echo "\n\n".abs($ddii)."\n\n";
+		if (abs($ddii)<$dire_limbo and $limbo==true) $data["direction"]=$data["direction"].".li";
 
-	return $data["direction"];
+		return $data["direction"];
 }
 
 function tweet($tmhOAuth,$text){
@@ -104,6 +156,8 @@ function tweet($tmhOAuth,$text){
 	    'status' => $text
 	  )
 	));
+	var_dump($code);
+	sleep(10);
 
 }
 
@@ -227,6 +281,16 @@ function get_lasttrade_local($pen=false){
 	$last_order["prem"] = $F1[4];
 	$last_order["prem_value"] = $F1[5];
 	return $last_order;
+}
+
+function intrd_ma($prices,$periods){
+	 	$maBuffer = array_slice($prices, -$periods);
+	 	$ma=(array_sum($maBuffer)/$periods);
+	 	return $ma;
+}
+
+function intrd_ema($curr_price,$lastema,$periods){
+	return ( ($curr_price * (2/(1+$periods))) + ( $lastema*(1-(2/(1+$periods))) ) );
 }
 
 function percentual($perc,$value){
@@ -383,11 +447,13 @@ function load_btccharts_data($file){
 }
 
 function get_ticker($ticker,$fake=false){
+	global $paper;
+	if ($paper) $fake=false;
 	if ($fake) {
 		global $fakegox_tickers;
 		if (file_exists($fakegox_tickers)){
 			$data=load_btccharts_data($fakegox_tickers);
-			$ticker["data"]["datetime"]["value"]=$data["datetime"];
+			if ($fake) $ticker["data"]["datetime"]["value"]=$data["datetime"];
 			$ticker["data"]["high"]["value"]=$data["high"];
 			$ticker["data"]["low"]["value"]=$data["low"];
 			$ticker["data"]["avg"]["value"]=$data["weighted_price"];
@@ -410,7 +476,7 @@ function get_ticker($ticker,$fake=false){
 	$data["ticker_buy"]=$ticker_buy;
 	$data["ticker_sell"]=$ticker_sell;
 	$data["ticker_vol"]=$ticker_vol;
-	$data["datetime"]=$ticker["data"]["datetime"]["value"];
+	if ($fake) $data["datetime"]=$ticker["data"]["datetime"]["value"];
 	return $data;
 }
 
@@ -466,8 +532,9 @@ function order_Add($type,$amount,$price,$prev,$prev_amount,$fake=false){
 
 	if ($fake==false){
 		global $mtGoxClient;
-		echo "ERROR DIE!";
-		die;
+		$result = $mtGoxClient->orderAdd($type,$amount,$price);
+		//echo "ERROR DIE!";
+		//die;
 	}else{
 		$result = localOrderAdd($type,$amount,$price);
 	}
@@ -475,8 +542,9 @@ function order_Add($type,$amount,$price,$prev,$prev_amount,$fake=false){
 	while (!isset($result["result"]) and $c<3) {
 		if ($fake==false){
 		global $mtGoxClient;
-		echo "ERROR DIE!";
-		die;
+		$result = $mtGoxClient->orderAdd($type,$amount,$price);
+		//echo "ERROR DIE!";
+		//die;
 		}else{
 			$result = localOrderAdd($type,$amount,$price);
 		}
@@ -493,16 +561,16 @@ function order_Add($type,$amount,$price,$prev,$prev_amount,$fake=false){
 
 	if ($type=="ask"){
 		if ($order["price"]>=$prev){
-			$order["prem"] = "lucro"; 
+			$order["prem"] = "profit"; 
 		}else{
-			$order["prem"] = "preju"; 
+			$order["prem"] = "loss"; 
 		}
 	}
 	if ($type=="bid"){
 		if ($order["price"]<=$prev){
-			$order["prem"] = "lucro"; 
+			$order["prem"] = "profit"; 
 		}else{
-			$order["prem"] = "preju"; 
+			$order["prem"] = "loss"; 
 		}
 	}
 	return $order;
@@ -555,6 +623,8 @@ function get_infodataf($fake=false){
 }
 
 function get_tickerf($fake=false){
+	global $paper;
+	if ($paper) $fake = false;
 	if ($fake) return false;
 	global $mtGoxClient;
 	$ticker = $mtGoxClient->getTicker(); 

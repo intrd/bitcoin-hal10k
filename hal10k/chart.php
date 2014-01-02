@@ -1,6 +1,7 @@
 <?php
  /* CAT:Line chart */ 
  /* pChart library inclusions */ 
+ include("functions.php"); 
  include("pChart/class/pData.class.php"); 
  include("pChart/class/pDraw.class.php"); 
  include("pChart/class/pImage.class.php"); 
@@ -10,13 +11,17 @@
  $F1=file("data/data.csv");
  $c=0;
  $pula=0;
- $control=(count($F1)*1)/100;
- //$control2=(count($F1)*1)/100;
- $control2=5; //ignorar N intervalos sem transações (otimizar o gráfico)
- $pular=true; //liga ou desliga a otimização do gráfico
+ $total=count($F1);
+ //$emaShort=10; //ultimos 10minutos
+ //$emaLong=25; //ultimos 21minutos
+
+ $control=(count($F1)*12)/100;
+ $control2=(count($F1)*1)/100;
+ //$control2=5;
+ $pular=false; //liga ou desliga a otimização do gráfico
 
  foreach ($F1 as $value){
- 	if ($pular and $pula<=$control2 and strpos($value,",,,")!==false){
+ 	if ($pular and $pula<=$control2 and (strpos($value,",bid,")===false and strpos($value,",ask,")===false )){
  		$pula++;
  	}else{
 	 	$value=explode(",",$value);
@@ -29,12 +34,24 @@
 	 			$data["times"][]="";
 	 			$c++;
 	 		}
+	 		
 	 		$data["prices"][]=round($value[2]);
+
+	 		if ($value[6]!=""){
+	 			$data["emaShort"][]=$value[6];
+	 		}else{
+	 			$data["emaShort"][]=VOID;
+	 		}
+	 		if ($value[7]!=""){
+	 			$data["emaLong"][]=$value[7];
+	 		}else{
+	 			$data["emaLong"][]=VOID;
+	 		}
+	 		
 	 		if ($value[3]!=""){
 		 		if ($value[3]=="bid"){
 		 			$data["bids"][]=round($value[2]);
 		 		}
-
 		 		if ($value[3]=="ask"){
 		 			$data["asks"][]=round($value[2]);
 		 		}
@@ -46,6 +63,7 @@
 	 	if ($pular) $pula=0;
 	}
  }
+
 
  $startdate=$F1[0];
  $startdate=explode(",",$startdate);
@@ -61,9 +79,10 @@
 
  $MyData->setAxisName(0,"Prices"); 
  $MyData->addPoints($data["bids"],"Buy");
- $MyData->addPoints($data["asks"],"Sell");  
-
+ $MyData->addPoints($data["asks"],"Sell");
  $MyData->addPoints($data["prices"],"BTC/USD"); 
+ $MyData->addPoints($data["emaShort"],"EMAshort");  
+ $MyData->addPoints($data["emaLong"],"EMAlong");  
 
  $MyData->setSerieShape("Buy",SERIE_SHAPE_FILLEDTRIANGLE);  
  $MyData->setSerieWeight("Buy",2); 
@@ -80,9 +99,9 @@
  $myPicture->setFontProperties(array("FontName"=>"pChart/fonts/Forgotte.ttf","FontSize"=>8,"R"=>0,"G"=>0,"B"=>0)); 
  $myPicture->drawText(15,22,"HAL10K by intrd",array("FontSize"=>15,"Align"=>TEXT_ALIGN_BOTTOMLEFT)); 
 
- $myPicture->drawText(320,20,"Período: ".$startdate." - ".$enddate."",array("FontSize"=>13,"Align"=>TEXT_ALIGN_BOTTOMLEFT));
+ $myPicture->drawText(450,20,"Período: ".$startdate." - ".$enddate."",array("FontSize"=>13,"Align"=>TEXT_ALIGN_BOTTOMLEFT));
 
- $myPicture->drawText(551,23,$nextmov,array("FontSize"=>13,"Align"=>TEXT_ALIGN_BOTTOMLEFT)); 
+ $myPicture->drawText(651,23,$nextmov,array("FontSize"=>13,"Align"=>TEXT_ALIGN_BOTTOMLEFT)); 
  
  $myPicture->setFontProperties(array("FontName"=>"pChart/fonts/pf_arma_five.ttf","FontSize"=>10,"R"=>0,"G"=>0,"B"=>0)); 
 
@@ -93,17 +112,23 @@
  
  $myPicture->Antialias = TRUE; 
 
- $MyData->setSerieDrawable("BTC/USD",TRUE); 
+ $MyData->setSerieDrawable("BTC/USD",TRUE);
+ $MyData->setSerieDrawable("EMAshort",TRUE); 
+ $MyData->setSerieDrawable("EMAlong",TRUE); 
  $MyData->setSerieDrawable("Buy",FALSE); 
  $MyData->setSerieDrawable("Sell",FALSE); 
  $myPicture->drawLineChart(array("DisplayValues"=>FALSE)); 
 
  $MyData->setSerieDrawable("BTC/USD",FALSE); 
+ $MyData->setSerieDrawable("EMAshort",FALSE);
+ $MyData->setSerieDrawable("EMAlong",FALSE); 
  $MyData->setSerieDrawable("Buy",TRUE); 
  $MyData->setSerieDrawable("Sell",TRUE); 
  $myPicture->drawPlotChart(array("DisplayValues"=>TRUE,"PlotBorder"=>FALSE,"BorderSize"=>2,"Surrounding"=>-60,"BorderAlpha"=>80)); 
 
  $MyData->setSerieDrawable("BTC/USD",TRUE); 
+ $MyData->setSerieDrawable("EMAshort",TRUE); 
+ $MyData->setSerieDrawable("EMAlong",TRUE); 
  $MyData->setSerieDrawable("Buy",TRUE); 
  $MyData->setSerieDrawable("Sell",TRUE); 
  //$myPicture->writeBounds();
