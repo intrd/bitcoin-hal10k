@@ -6,19 +6,21 @@ After losing some money on Bitcoin exchanges, I decided to develop my own Tradin
 
 **HAL10K** was developed "from scratch", without taking basis of existing algorithms/trading techniques. This project is a learning exercise on Trading/Economics for me, when started this project my experience was limited in programming and Bitcoin. Yes, I'm already getting real profits with this trading bot, and the idea of ​​Open Source assumed that sharing experiences, together we can greatly improve the algorithm and achieve even greater profits.
 
-**Contact**: Twitter @[intrd](http://twitter.com/intrd) or [http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/](http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/)   
-**Donations**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)   
-I'm open to questions/suggestions, any collaboration in the code is welcome.
-The author of this project and its contributors are not responsible for any losses.
-
 * Tks to
    - @thaleslaray - Starter investor
    - @rafaelchaguri - Beta tester 
    - Daniel Fraga: [http://www.youtube.com/user/DanielFragaBR](http://www.youtube.com/user/DanielFragaBR) 
    - Bitcoin Developers FB community: https://www.facebook.com/groups/bitcoindevelopersbr/204238816428548/
    - Wladimir Crippa & FB Bitcoin Brasil community: [http://www.facebook.com/groups/480508125292694](http://www.facebook.com/groups/480508125292694) 
-   - Reddit HAL10k Thread: [/r/bitcoin/hal10k thread](http://www.reddit.com/r/Bitcoin/comments/1u0bd9/hal10k_php_open_source_trading_helper_bot/) 
+
+* Suggestions/bug report
    - BitcoinTalk Thread: [hal10k thread](https://bitcointalk.org/index.php?topic=391630)
+   - Reddit HAL10k Thread: [/r/bitcoin/hal10k thread](http://www.reddit.com/r/Bitcoin/comments/1u0bd9/hal10k_php_open_source_trading_helper_bot/) 
+   - My blogpost pt_BR: [http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/](http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/)
+
+**Contact**: Twitter @[intrd](http://twitter.com/intrd)   
+**Donations**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)   
+The author of this project and its contributors are not responsible for any losses.
 
 ## WEB Control panel & console
 
