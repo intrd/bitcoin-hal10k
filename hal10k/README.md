@@ -14,8 +14,11 @@ After losing some money on Bitcoin exchanges, I decided to develop my own Tradin
    - My blogpost pt_BR: [http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/](http://dann.com.br/2013/bitcoin-php-open-source-hal10k-trading-bot/)
 
 **Contact**: Twitter @[intrd](http://twitter.com/intrd)   
-**Donations**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)   
-The author of this project and its contributors are not responsible for any losses.
+**Donations**: BTC Wallet: [19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig](https://blockchain.info/address/19kAWVN553KyoU7vx9pYXu8ShVUsPVXzig)
+
+**ATTENTION**
+>Please, do not go to the Live trading before mastering the paper trading.
+>The author of this project and its contributors are not responsible for any losses.
 
 ## WEB Control panel & console
 
