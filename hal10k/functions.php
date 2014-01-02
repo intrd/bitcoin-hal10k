@@ -162,6 +162,13 @@ function tweet($tmhOAuth,$text){
 }
 
 function status($price,$next_action,$next_price,$stoploss,$last_action,$last_price,$direction,$last_prem){
+	global $last_two_orders;
+	if ($last_two_orders==true) { $lst=false; }else{ $lst=true; }
+	$last_order=get_lasttrade_local($lst);
+	$last_action=$last_order["type"];
+	$last_price=$last_order["price"];
+	$last_prem=$last_order["prem"];
+	
 	$next_price=round($next_price);
 	$last_price=round($last_price);
 	$stoploss=round($stoploss);
