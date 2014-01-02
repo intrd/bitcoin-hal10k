@@ -453,7 +453,7 @@ function get_ticker($ticker,$fake=false){
 		global $fakegox_tickers;
 		if (file_exists($fakegox_tickers)){
 			$data=load_btccharts_data($fakegox_tickers);
-			if ($fake) $ticker["data"]["datetime"]["value"]=$data["datetime"];
+			$ticker["data"]["datetime"]["value"]=$data["datetime"];
 			$ticker["data"]["high"]["value"]=$data["high"];
 			$ticker["data"]["low"]["value"]=$data["low"];
 			$ticker["data"]["avg"]["value"]=$data["weighted_price"];
@@ -461,7 +461,7 @@ function get_ticker($ticker,$fake=false){
 			$ticker["data"]["sell"]["value"]=$data["ask"];
 			$ticker["data"]["vol"]["value"]=$data["usd_volume"];
 			unset($data);
-			$fake=false;
+			//$fake=false;
 		}
 	}
 	$ticker_high=$ticker["data"]["high"]["value"];
