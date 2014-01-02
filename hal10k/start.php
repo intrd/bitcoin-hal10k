@@ -54,20 +54,23 @@ while (1==1){
 	$ticker=get_tickerf($fake); $ticker=get_ticker($ticker,$fake);
 	$vol=$ticker["ticker_vol"];
 	if ($fake==true and $paper==false) $dt=$ticker["datetime"];
-	if ($emacross==true and isset($lastema)) { 
+	if ($emacross==true) { 
 		$lastema=emarket_direction($emacross,$lastema); 
 		if (($lastema["short"]>$lastema["long"]) and ($lastema["short"]-$lastema["long"])>$emaDiff) $ema="up";
 		if (($lastema["short"]<$lastema["long"]) and ($lastema["long"]-$lastema["short"])>$emaDiff) $ema="down";
-	}else { 
+	} 
+	
+	/*if (!isset($lastema)){ 
 		$lastema["short"]=false;
 		$lastema["long"]=false;
 		$ema="limbo";
 	}
 	$error=false;
-	if ($lastema["short"]==false or $lastema["long"]==false) {
+	if ($ema=="limbo") {
 		$error=true;
 	}
 	if ($error==true and $fake==true) $error=false;
+	var_dump($error);*/
 
 	$line=$dt.",,".$ticker["ticker_buy"].",,,$vol,".$lastema["short"].",".$lastema["long"].",\r\n";
 	$F1=file($datachart);
@@ -75,7 +78,7 @@ while (1==1){
  	$times=date('i', strtotime($hora[0]));
  	$hora_old=$times;
 
-	if ($error==false) wfilew($datachart,$line);
+	wfilew($datachart,$line);
 	$voll=vol_anormal(1);
 	if ($voll!=false) {
 			echo "\n*** High volume detected! ".$voll;
