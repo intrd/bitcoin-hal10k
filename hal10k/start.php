@@ -64,25 +64,22 @@ while (1==1){
 		$ema="limbo";
 	}
 	$error=false;
-	if (!($lastema["short"]==false or $lastema["long"]==false)) {
-		$error=true; //POG
+	if ($lastema["short"]==false or $lastema["long"]==false) {
+		$error=true;
 	}
 	if ($error==true and $fake==true) $error=false;
-	//var_dump($false); 
+
 	$line=$dt.",,".$ticker["ticker_buy"].",,,$vol,".$lastema["short"].",".$lastema["long"].",\r\n";
 	$F1=file($datachart);
 	$hora=end($F1); $hora=explode(",",$hora);
  	$times=date('i', strtotime($hora[0]));
  	$hora_old=$times;
- 	//if ($fake) $hora_new="a";
- 	$hora_new="a"; //log every interval, remover esta POG
-	if ($hora_old!=$hora_new){
-		if ($error==false) wfilew($datachart,$line);
-		$voll=vol_anormal(1);
-		if ($voll!=false) {
+
+	if ($error==false) wfilew($datachart,$line);
+	$voll=vol_anormal(1);
+	if ($voll!=false) {
 			echo "\n*** High volume detected! ".$voll;
 			if ($enable_tweet) tweet($tmhOAuth,"High volume detected! ".$voll." $twitter_users");
-		}
 	}
 	
 
