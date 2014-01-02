@@ -290,7 +290,9 @@ function intrd_ma($prices,$periods){
 }
 
 function intrd_ema($curr_price,$lastema,$periods){
-	return ( ($curr_price * (2/(1+$periods))) + ( $lastema*(1-(2/(1+$periods))) ) );
+	$ema= ( ($curr_price * (2/(1+$periods))) + ( $lastema*(1-(2/(1+$periods))) ) );
+	if ($ema==false or $ema=="") $ema=$lastema;
+	return $ema;
 }
 
 function percentual($perc,$value){
