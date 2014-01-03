@@ -54,14 +54,18 @@ while (1==1){
 	$ticker=get_tickerf($fake); $ticker=get_ticker($ticker,$fake);
 	$vol=$ticker["ticker_vol"];
 	if ($fake==true and $paper==false) $dt=$ticker["datetime"];
+	if (isset($ema)) unset($ema);
 	if ($emacross==true) { 
 		$lastema=emarket_direction($emacross,$lastema); 
 		echo "\r\n*** EMAShort".$lastema["short"];
 		echo " / EMALong".$lastema["long"]."";
-		if (($lastema["short"]>$lastema["long"]) and ($lastema["short"]-$lastema["long"])>$emaDiff) $ema="up";
-		if (($lastema["short"]<$lastema["long"]) and ($lastema["long"]-$lastema["short"])>$emaDiff) $ema="down";
+		if (($lastema["short"]>$lastema["long"]) and ($lastema["short"]-$lastema["long"])>$emaDiff) {
+			$ema="up";
+		}else{
+			$ema="down";
+		}
 	}
-	if ($emacross==true and $lastema==NULL) {
+	if ($emacross==true and !isset($ema)) {
 		$ema="limbo";
 	}
 	
