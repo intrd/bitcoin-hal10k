@@ -46,8 +46,8 @@
 	$down_diff_inv=999; //(buy) stop loss (in USD) above the selling price;
 	$secure_ticker=300.99500; //Security value that prevents the bot to make sales below a certain value;
 	$emacross=true; //Turn on EMA crossover method (if emacross=true, Simple Market Direction Method automatically is turned off);
-	$emaShort=10; //EMA short period(in seconds) for EMA crossover method;
-	$emaLong=22; //EMA long period(in seconds) for EMA crossover method;
+	$emaShort=50; //EMA short period(in seconds) for EMA crossover method;
+	$emaLong=100; //EMA long period(in seconds) for EMA crossover method;
 	$emaDiff=0; //EMA difference between short and long crossover;
 	$last_two_orders=false; //Base next move on the last two transactions value;
 	$interval=10; //Bot loop interval (in seconds);
@@ -60,10 +60,10 @@
 	$vol_limbo=450.78526468; //Minimum volume (in USD) to consider an abnormal change at the volume of an interval to another;
 	
 	/* Backtesting and Paper trading */
-	$fake=false; //Turns on/off simulation (backtesting);
+	$fake=true; //Turns on/off simulation (backtesting);
 	$paper=false; //Paper trading is simulation with Real Live Tickers but w/ fake money balance. (If Paper trading is true, $fake needs to be defined to "true");
 	$fake_btc_balance="0.03161308"; //Initial amount of BTC for the simulation;
-	$fake_btc_usd_buyedprice="819.00000"; //Initial purchase price of BTC (ATENTION: you need to set this value for Backtesting and Paper trading);
+	$fake_btc_usd_buyedprice="707.00000"; //Initial purchase price of BTC (ATENTION: you need to set this value for Backtesting and Paper trading);
 	$fake_datetime_of_firstbid="2014-01-01 00:00:00"; //Initial datetime (same as first line of $fakegox_tickers file below)
 	$fakegox_tickers=$datadir."fakegox_tickers(24.12-26.12).txt"; //Access http://bitcoincharts.com/charts/mtgoxUSD, set the period (must be a period that supports interval 1min), click Raw Data, copy/paste the contents of the table in a TXT file and replaces tabulations by "," comma);
 	
@@ -73,12 +73,12 @@
 	$twitter_oauth["token"]="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 	$twitter_oauth["secret"]="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 	$twitter_users="@intrd"; //Twitter @users to be notified
-	$enable_tweet=true; //enable/disable twitter notifications
+	$enable_tweet=false; //enable/disable twitter notifications
 	
 	/* Format of starting data */	
 	$reset_data=false; //turn on to reset data every run;
 	if ($fake==true or $reset_data==true){
-		$default_data="$fake_datetime_of_firstbid,,$fake_btc_usd_buyedprice,bid,loss,7.71,,,\r\n";
+		$default_data="$fake_datetime_of_firstbid,,$fake_btc_usd_buyedprice,ask,loss,7.71,,,\r\n$fake_datetime_of_firstbid,,$fake_btc_usd_buyedprice,bid,loss,7.71,,,\r\n";
 		wfilenew($datachart,$default_data);
 		$default_data="bid,[btc$fake_btc_balance/usd:0],$fake_btc_usd_buyedprice,$fake_datetime_of_firstbid,loss,#suddenmode,\r\n";
 		wfilenew($lastfile,$default_data);
@@ -90,6 +90,6 @@
 		wfilenew($lastfile_clean,$default_data);
 	}
 
-echo "First running? edit these files: configs.php e o hal10k.bat"; sleep(100); //COMMENT THIS LINE AT FIRST RUN 
+//echo "First running? edit these files: configs.php e o hal10k.bat"; sleep(100); //COMMENT THIS LINE AT FIRST RUN 
 
 ?>
