@@ -69,6 +69,10 @@ function emarket_direction($emacross=false,$lastema=false){
 
 	global $emaShort;
 	global $emaLong;
+	$emaSbuffer=$emaShort;
+	$emaLbuffer=$emaLong;
+	if ($total<$emaShort) $emaShort=($total/2);
+	if ($total<$emaLong) $emaLong=$total;
 	if ($emacross and $total>=$emaShort){
 		$c=0;
 		while ($c<=$emaShort){
@@ -111,6 +115,8 @@ function emarket_direction($emacross=false,$lastema=false){
 		 	}
 	 	}
 	}
+	$emaShort=$emaSbuffer;
+	$emaLong=$emaLbuffer;
 	if (isset($lastemas)) return $lastemas;
 }
 
