@@ -71,8 +71,8 @@ function emarket_direction($emacross=false,$lastema=false){
 	global $emaLong;
 	$emaSbuffer=$emaShort;
 	$emaLbuffer=$emaLong;
-	if ($total<$emaShort) $emaShort=($total/2);
-	if ($total<$emaLong) $emaLong=$total;
+	if ($total<$emaShort) $emaShort=2;
+	if ($total<$emaLong) $emaLong=5;
 	if ($emacross and $total>=$emaShort){
 		$c=0;
 		while ($c<=$emaShort){
