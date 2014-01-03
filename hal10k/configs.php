@@ -90,6 +90,7 @@
 		wfilenew($lastfile_clean,$default_data);
 	}
 
-//echo "First running? edit these files: configs.php e o hal10k.bat"; sleep(100); //COMMENT THIS LINE AT FIRST RUN 
+echo "\r\nWhen the bot is running, access hal10k/index.php on your browser to open the HTTP Control Panel"; //COMMENT THIS LINE AT FIRST RUN 
+echo "\r\nFirst running? edit these files: configs.php e o hal10k.bat."; sleep(100); //COMMENT THIS LINE AT FIRST RUN 
 
 ?>
