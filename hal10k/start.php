@@ -57,8 +57,8 @@ while (1==1){
 	if (isset($ema)) unset($ema);
 	if ($emacross==true) { 
 		$lastema=emarket_direction($emacross,$lastema); 
-		echo "\r\n*** EMAShort".$lastema["short"];
-		echo " / EMALong".$lastema["long"]."";
+		//echo "\r\n*** EMAShort".$lastema["short"];
+		//echo " / EMALong".$lastema["long"]."";
 		if (($lastema["short"]>$lastema["long"]) and ($lastema["short"]-$lastema["long"])>$emaDiff) {
 			$ema="up";
 		}else{
