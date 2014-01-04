@@ -46,7 +46,7 @@ Live statistics, "Sudden" and "Death mode" remote control.
 
 ## EMA Short/Long Crossover trading technique
 
-![](http://dann.com.br/EMAchart.png)
+![](http://dann.com.br/EMAchart2.png)
 >Perfect for high frequency trading, better than simple trading method
 
 ## Twitter notifications sample
@@ -126,7 +126,7 @@ This project was developed in the environment described below, so please try to 
    * tmhOAuth for Twitter notifications;  
 
 **Changelog**
-* v2.0 beta 1
+* v2.1 beta 2
    * - New trading technique implemented: EMA short/long crossover
    * - Paper trading: Differs to Backtesting, its a simulation with Live Tickers but w/ fake money balance.
    * - Improvements in Clear Log file
