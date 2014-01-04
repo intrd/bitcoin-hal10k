@@ -67,7 +67,7 @@ while (1==1){
 		}else{
 			$ema="down";
 		}
-		if ($lastema["short"]==null and $lastema["long"]==null){
+		if ($lastema["short"]==null or $lastema["long"]==null){
 			$ema="limbo";
 		}
 	}
