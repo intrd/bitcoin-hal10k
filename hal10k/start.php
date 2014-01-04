@@ -65,7 +65,11 @@ while (1==1){
 		if (($lastema["short"]>$lastema["long"]) and ($lastema["short"]-$lastema["long"])>$emaDiff) {
 			$ema="up";
 		}else{
-			$ema="down";
+			if ($lastema["long"]-$lastema["short"]>$emaDiff){
+				$ema="down";
+			}else{
+				$ema="up";
+			}
 		}
 		if ($lastema["short"]==null or $lastema["long"]==null){
 			$ema="limbo";
