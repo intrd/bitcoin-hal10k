@@ -23,7 +23,10 @@ $mtGoxClient = new MtGoxClient($gox["app_id"],$gox["app_secret"]);
 
 $replace=false;
 $infodata=get_infodataf($fake); $info=get_infodata($infodata,$fake,$replace);
-$ticker=get_tickerf($fake); $ticker=get_ticker($ticker,$fake);
+$ticker=get_tickerf($fake); /*var_dump($ticker);*/ $ticker=get_ticker($ticker,$fake);
+
+//var_dump($ticker);
+//die;
 
 echo "\n*** HAL_10K $version (by intrd)";
 echo "\n$ Logged: ".$info["logged"];
@@ -57,12 +60,15 @@ while (1==1){
 	if (isset($ema)) unset($ema);
 	if ($emacross==true) { 
 		$lastema=emarket_direction($emacross,$lastema); 
-		//echo "\r\n*** EMAShort".$lastema["short"];
-		//echo " / EMALong".$lastema["long"]."";
+		echo "\r\n*** EMAShort".$lastema["short"];
+		echo " / EMALong".$lastema["long"]."";
 		if (($lastema["short"]>$lastema["long"]) and ($lastema["short"]-$lastema["long"])>$emaDiff) {
 			$ema="up";
 		}else{
 			$ema="down";
+		}
+		if ($lastema["short"]==null and $lastema["long"]==null){
+			$ema="limbo";
 		}
 	}
 	if ($emacross==true and !isset($ema)) {
@@ -81,7 +87,7 @@ while (1==1){
 	if ($error==true and $fake==true) $error=false;
 	var_dump($error);*/
 
-	$line=$dt.",,".$ticker["ticker_buy"].",,,$vol,".$lastema["short"].",".$lastema["long"].",\r\n";
+	$line=$dt.",,".$ticker["ticker_last"].",,,$vol,".$lastema["short"].",".$lastema["long"].",\r\n";
 	$F1=file($datachart);
 	$hora=end($F1); $hora=explode(",",$hora);
  	$times=date('i', strtotime($hora[0]));

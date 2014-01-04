@@ -71,8 +71,8 @@ function emarket_direction($emacross=false,$lastema=false){
 	global $emaLong;
 	$emaSbuffer=$emaShort;
 	$emaLbuffer=$emaLong;
-	if ($total<$emaShort) $emaShort=2;
-	if ($total<$emaLong) $emaLong=5;
+	//if ($total<$emaShort) $emaShort=2;
+	//if ($total<$emaLong) $emaLong=5;
 	if ($emacross and $total>=$emaShort){
 		$c=0;
 		while ($c<=$emaShort){
@@ -445,13 +445,15 @@ function load_btccharts_data($file){
 	$F2=explode(",",$F2);
 
 	$data["datetime"]=$F2[0];
-	$data["bid"]=$F2[1];
-	$data["ask"]=$F2[4];
+	$data["bid"]=$F2[3];
+	$data["ask"]=$F2[2];
 	$data["high"]=$F2[2];
 	$data["low"]=$F2[3];
 	$data["btc_volume"]=$F2[5];
 	$data["usd_volume"]=$F2[6];
 	$data["weighted_price"]=$F2[7];
+	$data["close"]=$F2[4];
+	$data["open"]=$F2[1];
 	$index++;
 	if ($index>=count(file($file))){
 		echo "\r\rnsimulation is over!\r\n";
@@ -476,16 +478,19 @@ function get_ticker($ticker,$fake=false){
 			$ticker["data"]["buy"]["value"]=$data["bid"];
 			$ticker["data"]["sell"]["value"]=$data["ask"];
 			$ticker["data"]["vol"]["value"]=$data["usd_volume"];
+			$ticker["data"]["last"]["value"]=$data["close"];
 			unset($data);
 			//$fake=false;
 		}
 	}
+	$ticker_high=$ticker["data"]["last"]["value"];
 	$ticker_high=$ticker["data"]["high"]["value"];
 	$ticker_low=$ticker["data"]["low"]["value"];
 	$ticker_avg=$ticker["data"]["avg"]["value"];
 	$ticker_buy=$ticker["data"]["buy"]["value"];
 	$ticker_sell=$ticker["data"]["sell"]["value"];
 	$ticker_vol=$ticker["data"]["vol"]["value"];
+	$data["ticker_last"]=$ticker_high;
 	$data["ticker_high"]=$ticker_high;
 	$data["ticker_low"]=$ticker_low;
 	$data["ticker_avg"]=$ticker_avg;
@@ -501,6 +506,7 @@ function get_ticker($ticker,$fake=false){
 function localOrderAdd($type,$amount,$price){
 	global $percentual;
 	global $fake;
+	global $bidfee;
 	$infodata=get_infodataf($fake); $info=get_infodata($infodata,$fake);
 	$ok=0;
 
@@ -514,7 +520,7 @@ function localOrderAdd($type,$amount,$price){
 	} 
 	if (($type=="bid") and ((round($info["usd_balance"],2))>=(round($price*$amount,2)))){
 		$info["btc_balance"]=($info["btc_balance"]+$amount);
-		$info["btc_balance"]=$info["btc_balance"]-percentual($percentual,$info["btc_balance"]);
+		$info["btc_balance"]=$info["btc_balance"]-percentual($bidfee,$info["btc_balance"]);
 		$info["usd_balance"]=($info["usd_balance"]-$info["usd_balance"]);
 		$ok=1;
 	}

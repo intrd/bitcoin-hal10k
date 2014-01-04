@@ -40,17 +40,18 @@
 
 	/* Custom trading algoritm parameters */
 	$percentual=0.45; //Minimum percentage of profit on the purchase (Use the current fee applied by MtGox);
+	$exchangefee=0.45 //Just for simulation purposes (Use the current fee applied by MtGox);
 	$up_diff=0; //(sell) profit points (in USD) above the purchase price;
 	$up_diff_inv=990; //(sell) stop loss (in USD) below the purchase price;
 	$down_diff=0; //(buy) profit points (in USD) below the selling price;
 	$down_diff_inv=999; //(buy) stop loss (in USD) above the selling price;
 	$secure_ticker=300.99500; //Security value that prevents the bot to make sales below a certain value;
 	$emacross=true; //Turn on EMA crossover method (if emacross=true, Simple Market Direction Method automatically is turned off);
-	$emaShort=50; //EMA short period(in seconds) for EMA crossover method;
-	$emaLong=100; //EMA long period(in seconds) for EMA crossover method;
+	$emaShort=10; //EMA short period(in minutes because you are using $interval=60;) for EMA crossover method;
+	$emaLong=25; //EMA long period(in minutes because you are using $interval=60;) for EMA crossover method;
 	$emaDiff=0; //EMA difference between short and long crossover;
 	$last_two_orders=false; //Base next move on the last two transactions value;
-	$interval=10; //Bot loop interval (in seconds);
+	$interval=60; //Bot loop interval (in seconds);
 	$timeout=80; //Timeout in seconds for completion of the bid/ask;
 	$sudden_mode=0; //When active, the bot makes a purchase at the sale price, or a sale at the purchase price. Used only when there is a need for immediate order processing. It will be disabled after the order is processed;
 	$reverse_prices=0; //Same as Sudden, but definite. It will never turned off;
@@ -76,7 +77,7 @@
 	$enable_tweet=false; //enable/disable twitter notifications
 	
 	/* Format of starting data */	
-	$reset_data=false; //turn on to reset data every run;
+	$reset_data=true; //turn on to reset data every run;
 	if ($fake==true or $reset_data==true){
 		$default_data="$fake_datetime_of_firstbid,,$fake_btc_usd_buyedprice,ask,loss,7.71,,,\r\n$fake_datetime_of_firstbid,,$fake_btc_usd_buyedprice,bid,loss,7.71,,,\r\n";
 		wfilenew($datachart,$default_data);
@@ -90,7 +91,7 @@
 		wfilenew($lastfile_clean,$default_data);
 	}
 
-echo "\r\nWhen the bot is running, access hal10k/index.php on your browser to open the HTTP Control Panel"; //COMMENT THIS LINE AT FIRST RUN 
-echo "\r\nFirst running? edit these files: configs.php e o hal10k.bat."; sleep(100); //COMMENT THIS LINE AT FIRST RUN 
+//echo "\r\nWhen the bot is running, access hal10k/index.php on your browser to open the HTTP Control Panel"; //COMMENT THIS LINE AT FIRST RUN 
+//echo "\r\nFirst running? edit these files: configs.php e o hal10k.bat."; sleep(100); //COMMENT THIS LINE AT FIRST RUN 
 
 ?>
