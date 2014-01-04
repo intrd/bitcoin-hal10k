@@ -40,7 +40,7 @@
 
 	/* Custom trading algoritm parameters */
 	$percentual=0.45; //Minimum percentage of profit on the purchase (Use the current fee applied by MtGox);
-	$exchangefee=0.45 //Just for simulation purposes (Use the current fee applied by MtGox);
+	$bidfee=0.45 //Just for simulation purposes (Use the current fee applied by MtGox);
 	$up_diff=0; //(sell) profit points (in USD) above the purchase price;
 	$up_diff_inv=990; //(sell) stop loss (in USD) below the purchase price;
 	$down_diff=0; //(buy) profit points (in USD) below the selling price;
@@ -91,7 +91,7 @@
 		wfilenew($lastfile_clean,$default_data);
 	}
 
-//echo "\r\nWhen the bot is running, access hal10k/index.php on your browser to open the HTTP Control Panel"; //COMMENT THIS LINE AT FIRST RUN 
-//echo "\r\nFirst running? edit these files: configs.php e o hal10k.bat."; sleep(100); //COMMENT THIS LINE AT FIRST RUN 
+echo "\r\nWhen the bot is running, access hal10k/index.php on your browser to open the HTTP Control Panel"; //COMMENT THIS LINE AT FIRST RUN 
+echo "\r\nFirst running? edit these files: configs.php e o hal10k.bat."; sleep(100); //COMMENT THIS LINE AT FIRST RUN 
 
 ?>
