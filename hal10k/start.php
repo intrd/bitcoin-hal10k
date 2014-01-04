@@ -59,6 +59,7 @@ while (1==1){
 	if ($fake==true and $paper==false) $dt=$ticker["datetime"];
 	if (isset($ema)) unset($ema);
 	if ($emacross==true) { 
+		if (!isset($lastema)) $lastema=false;
 		$lastema=emarket_direction($emacross,$lastema); 
 		echo "\r\n*** EMAShort".$lastema["short"];
 		echo " / EMALong".$lastema["long"]."";
