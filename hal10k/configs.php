@@ -40,7 +40,7 @@
 
 	/* Custom trading algoritm parameters */
 	$percentual=0.45; //Minimum percentage of profit on the purchase (Use the current fee applied by MtGox);
-	$bidfee=0.45 //Just for simulation purposes (Use the current fee applied by MtGox);
+	$bidfee=0.45; //Just for simulation purposes (Use the current fee applied by MtGox);
 	$up_diff=0; //(sell) profit points (in USD) above the purchase price;
 	$up_diff_inv=990; //(sell) stop loss (in USD) below the purchase price;
 	$down_diff=0; //(buy) profit points (in USD) below the selling price;
