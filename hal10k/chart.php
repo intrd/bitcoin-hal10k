@@ -1,7 +1,8 @@
 <?php
  /* CAT:Line chart */ 
  /* pChart library inclusions */ 
- include("functions.php"); 
+ include("configs.php"); 
+ //include("functions.php");
  include("pChart/class/pData.class.php"); 
  include("pChart/class/pDraw.class.php"); 
  include("pChart/class/pImage.class.php"); 
@@ -55,17 +56,19 @@
 			}*/
 			
 			
-
-	 		if ($value[6]!=""){
+			
+			
+	 		if (strlen($value[6]>=2)){
 	 			$data["emaShort"][]=$value[6];
 	 		}else{
 	 			$data["emaShort"][]=VOID;
 	 		}
-	 		if ($value[7]!=""){
+	 		if (strlen($value[7]>=2)){
 	 			$data["emaLong"][]=$value[7];
 	 		}else{
 	 			$data["emaLong"][]=VOID;
 	 		}
+			
 			
 	 		
 	 		if ($value[3]!=""){
@@ -83,8 +86,7 @@
 	 	if ($pular) $pula=0;
 	}
  }
-//var_dump($data["emaShort"]);
-//die;
+
 
  $startdate=$F1[0];
  $startdate=explode(",",$startdate);
@@ -156,6 +158,7 @@
  $myPicture->drawLegend(121,10,array("Style"=>LEGEND_NOBORDER,"Mode"=>LEGEND_HORIZONTAL,"FontR"=>0,"FontG"=>0,"FontB"=>0)); 
  
 $myPicture->autoOutput("graph.png"); 
+
 
 ?>
 
