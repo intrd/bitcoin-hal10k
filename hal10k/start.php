@@ -59,18 +59,14 @@ while (1==1){
 	if ($fake==true and $paper==false) $dt=$ticker["datetime"];
 	if (isset($ema)) unset($ema);
 	if ($emacross==true) { 
-		if (!isset($lastema)) $lastema=false;
 		$lastema=emarket_direction($emacross,$lastema); 
 		echo "\r\n*** EMAShort".$lastema["short"];
 		echo " / EMALong".$lastema["long"]."";
 		if (($lastema["short"]>$lastema["long"]) and ($lastema["short"]-$lastema["long"])>$emaDiff) {
 			$ema="up";
-		}else{
-			if ($lastema["long"]-$lastema["short"]>$emaDiff){
-				$ema="down";
-			}else{
-				$ema="up";
-			}
+		}
+		if (($lastema["long"]>$lastema["short"]) and ($lastema["long"]-$lastema["short"])>$emaDiff) {
+			$ema="down";
 		}
 		if ($lastema["short"]==null or $lastema["long"]==null){
 			$ema="limbo";
@@ -94,6 +90,7 @@ while (1==1){
 
 	$line=$dt.",,".$ticker["ticker_last"].",,,$vol,".$lastema["short"].",".$lastema["long"].",\r\n";
 	$F1=file($datachart);
+	//echo $ticker["ticker_last"];
 	$hora=end($F1); $hora=explode(",",$hora);
  	$times=date('i', strtotime($hora[0]));
  	$hora_old=$times;
