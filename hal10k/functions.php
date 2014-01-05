@@ -63,18 +63,31 @@ function vol_anormal($last_minutes){
 
 function lastnprices($arra,$nval){
 	$lastn = array_slice($arra, -$nval); 
+	$c=0;
 	foreach ($lastn as $value){
-		if (strlen($value)>=2){
-			$value=explode(",",$value);
+		$value=explode(",",$value);
+		if (strlen($value[2])>=2){
 			$value=$value[2];
 			$value=round($value,2);
-			$values[]=$value;
+			$values[$c]["cur"]=$value;
+			//$values[$c]["emaShort"]=$value;
 		}
+		if (strlen($value[6])>=2){
+			$value=$value[6];
+			$value=round($value,2);
+			$values[$c]["emaShort"]=$value;
+		}
+		if (strlen($value[7])>=2){		
+			$value=$value[7];
+			$value=round($value,2);
+			$values[$c]["emaShort"]=$value;
+		}
+		$c++;
 	}
 	return $values;
 }
 
-function emarket_direction($emacross=false,$lastema=false){
+function emarket_direction(){
 	global $datachart;
 	global $dire_limbo;
 	global $emaShort;
@@ -84,17 +97,27 @@ function emarket_direction($emacross=false,$lastema=false){
 	$total=(count($F1)-1);
 	
 	if ($total>=$emaLong){
+	
 		$emaValues=lastnprices($F1,$emaShort);
-		if (!isset($lastema)) $lastema=intrd_ma($emaValues,$emaShort);
-		$lastemas["short"]=round(intrd_ema(end($emaValues),$lastema,$emaShort),2);
+		$lastValue=end($emaValues);
+		foreach ($emaValues as $value){
+			$prices[]=$value["cur"];
+		}
+		if (!isset($lastValue["emaShort"])) $lastValue["emaShort"]=intrd_ma($prices,$emaShort);
+		$ema["short"]=round(intrd_ema($lastValue["cur"],$lastValue["emaShort"],$emaShort),2);
 		
 		$emaValues=lastnprices($F1,$emaLong);
-		if (!isset($lastema)) $lastema["emaLong"]=intrd_ma($emaValues,$emaLong);
-		$lastemas["long"]=round(intrd_ema(end($emaValues),$lastema,$emaLong),2);
+		$lastValue=end($emaValues);
+		foreach ($emaValues as $value){
+			$prices[]=$value["cur"];
+		}
+		if (!isset($lastValue["emaLong"])) $lastValue["emaLong"]=intrd_ma($prices,$emaLong);
+		$ema["long"]=round(intrd_ema($lastValue["cur"],$lastValue["emaLong"],$emaLong),2);
+		
+		return $ema;
 	}
 //	var_dump($lastemas);
 //	die;
-	return $lastemas;
 	
 }
 
@@ -276,7 +299,7 @@ function get_lasttrade_local($pen=false){
 }
 
 function intrd_ma($prices,$periods){
-	 	$maBuffer = array_slice($prices, -$periods);
+		$maBuffer = array_slice($prices, -$periods);
 	 	$ma=(array_sum($maBuffer)/$periods);
 	 	return $ma;
 }
