@@ -42,9 +42,9 @@
 	$percentual=0.45; //Minimum percentage of profit on the purchase (Use the current fee applied by MtGox);
 	$bidfee=0.45; //Just for simulation purposes (Use the current fee applied by MtGox);
 	$up_diff=10; //(sell) profit points (in USD) above the purchase price;
-	$up_diff_inv=999; //(sell) stop loss (in USD) below the purchase price;
+	$up_diff_inv=5; //(sell) stop loss (in USD) below the purchase price;
 	$down_diff=10; //(buy) profit points (in USD) below the selling price;
-	$down_diff_inv=999; //(buy) stop loss (in USD) above the selling price;
+	$down_diff_inv=5; //(buy) stop loss (in USD) above the selling price;
 	$secure_ticker=300.99500; //Security value that prevents the bot to make sales below a certain value;
 	$emacross=true; //Turn on EMA crossover method (if emacross=true, Simple Market Direction Method automatically is turned off);
 	$emaShort=20; //EMA short period(in minutes because you are using $interval=60;) for EMA crossover method;
