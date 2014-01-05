@@ -61,10 +61,18 @@ while (1==1){
 		$lastema=emarket_direction(); 
 		echo "\r\n*** EMAShort".$lastema["short"];
 		echo " / EMALong".$lastema["long"]."";
-		if (($lastema["short"]>$lastema["long"]) and ($lastema["short"]-$lastema["long"])>$emaDiff) {
-			$ema="up";
+		if ($lastema["short"]>$lastema["long"]) {
+			if (($lastema["short"]-$lastema["long"])>$emaDiff){
+				$ema="up";
+			}else{
+				$ema="up.limbo";
+			}
 		}else{
-			$ema="down";
+			if (($lastema["long"]-$lastema["short"])>$emaDiff){
+				$ema="down";
+			}else{
+				$ema="down.limbo";
+			}
 		}
 		if ($lastema==false){
 			$ema="limbo";
