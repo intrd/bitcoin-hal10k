@@ -483,14 +483,14 @@ function get_ticker($ticker,$fake=false){
 			//$fake=false;
 		}
 	}
-	$ticker_high=$ticker["data"]["last"]["value"];
+	$ticker_last=$ticker["data"]["last"]["value"];
 	$ticker_high=$ticker["data"]["high"]["value"];
 	$ticker_low=$ticker["data"]["low"]["value"];
 	$ticker_avg=$ticker["data"]["avg"]["value"];
 	$ticker_buy=$ticker["data"]["buy"]["value"];
 	$ticker_sell=$ticker["data"]["sell"]["value"];
 	$ticker_vol=$ticker["data"]["vol"]["value"];
-	$data["ticker_last"]=$ticker_high;
+	$data["ticker_last"]=$ticker_last;
 	$data["ticker_high"]=$ticker_high;
 	$data["ticker_low"]=$ticker_low;
 	$data["ticker_avg"]=$ticker_avg;
