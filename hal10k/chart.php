@@ -36,6 +36,25 @@
 	 		}
 	 		
 	 		$data["prices"][]=round($value[2]);
+			
+			/*$total=count($data["prices"]);
+			if ($total>=40){
+				$lastn = array_slice($data["prices"], -20); 
+				if (!isset($emaShortValue)) $emaShortValue=intrd_ma($lastn,20);
+				$emaShortValue=intrd_ema(end($lastn),$emaShortValue,20);
+				$data["emaShort"][]=$emaShortValue;
+				
+				$lastn = array_slice($data["prices"], -44); 
+				if (!isset($emaLongValue)) $emaLongValue=intrd_ma($lastn,44);
+				$emaLongValue=intrd_ema(end($lastn),$emaLongValue,44);
+				$data["emaLong"][]=$emaLongValue;
+				
+			} else{
+				$data["emaShort"][]=VOID;
+				$data["emaLong"][]=VOID;
+			}*/
+			
+			
 
 	 		if ($value[6]!=""){
 	 			$data["emaShort"][]=$value[6];
@@ -47,6 +66,7 @@
 	 		}else{
 	 			$data["emaLong"][]=VOID;
 	 		}
+			
 	 		
 	 		if ($value[3]!=""){
 		 		if ($value[3]=="bid"){
@@ -63,7 +83,8 @@
 	 	if ($pular) $pula=0;
 	}
  }
-
+//var_dump($data["emaShort"]);
+//die;
 
  $startdate=$F1[0];
  $startdate=explode(",",$startdate);

@@ -48,8 +48,6 @@ while (1==1){
 	if ($sudden_mode==1){
 		echo "\r\n### MANUAL SUDDEN ###\r\n";
 	}
-	if ($fake==false) sleep($interval);
-	if ($paper==true) sleep($interval);
 	$infodata=get_infodataf($fake); $info=get_infodata($infodata,$fake);
 
 	$dt=date("Y-m-d H:i:s");
@@ -57,6 +55,7 @@ while (1==1){
 	$ticker=get_tickerf($fake); $ticker=get_ticker($ticker,$fake);
 	$vol=$ticker["ticker_vol"];
 	if ($fake==true and $paper==false) $dt=$ticker["datetime"];
+	
 	if (isset($ema)) unset($ema);
 	if ($emacross==true) { 
 		$lastema=emarket_direction($emacross,$lastema); 
@@ -75,18 +74,6 @@ while (1==1){
 	if ($emacross==true and !isset($ema)) {
 		$ema="limbo";
 	}
-	
-	/*if (!isset($lastema)){ 
-		$lastema["short"]=false;
-		$lastema["long"]=false;
-		$ema="limbo";
-	}
-	$error=false;
-	if ($ema=="limbo") {
-		$error=true;
-	}
-	if ($error==true and $fake==true) $error=false;
-	var_dump($error);*/
 
 	$line=$dt.",,".$ticker["ticker_last"].",,,$vol,".$lastema["short"].",".$lastema["long"].",\r\n";
 	$F1=file($datachart);
@@ -223,6 +210,8 @@ while (1==1){
 			}
 		}
 	}
+	if ($fake==false) sleep($interval);
+	if ($paper==true) sleep($interval);
 }
 
 

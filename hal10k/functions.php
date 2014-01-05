@@ -61,63 +61,41 @@ function vol_anormal($last_minutes){
 	return false;
 }
 
+function lastnprices($arra,$nval){
+	$lastn = array_slice($arra, -$nval); 
+	foreach ($lastn as $value){
+		if (strlen($value)>=2){
+			$value=explode(",",$value);
+			$value=$value[2];
+			$value=round($value,2);
+			$values[]=$value;
+		}
+	}
+	return $values;
+}
+
 function emarket_direction($emacross=false,$lastema=false){
 	global $datachart;
 	global $dire_limbo;
-	$F1=file($datachart);
-	$total=(count($F1)-1);
-
 	global $emaShort;
 	global $emaLong;
-	$emaSbuffer=$emaShort;
-	$emaLbuffer=$emaLong;
-	//if ($total<$emaShort) $emaShort=2;
-	//if ($total<$emaLong) $emaLong=5;
-	if ($emacross and $total>=$emaShort){
-		$c=0;
-		while ($c<=$emaShort){
-			if (isset($F1[($total-$c)])){
-				$valu=$F1[($total-$c)];
-				$valu=explode(",",$valu);
-				$valu=$valu[2];
-				$values[]=round($valu,2);
-			}
-			$c++;
-		}
-		$values=array_reverse($values);
-		if (count($values)>=$emaShort){
-			if ($lastema["short"]==false) $lastema["short"]=intrd_ma($values,$emaShort);
-		 	$emaShortValue=intrd_ema(end($values),$lastema["short"],$emaShort);
-		 	$lastemas["short"]=round($emaShortValue,2);
-		 	if (!isset($lastemas["long"])){
-		 		$lastemas["long"]=false;
-		 	}
-	 	}
+	
+	$F1=file($datachart);
+	$total=(count($F1)-1);
+	
+	if ($total>=$emaLong){
+		$emaValues=lastnprices($F1,$emaShort);
+		if (!isset($lastema)) $lastema=intrd_ma($emaValues,$emaShort);
+		$lastemas["short"]=round(intrd_ema(end($emaValues),$lastema,$emaShort),2);
+		
+		$emaValues=lastnprices($F1,$emaLong);
+		if (!isset($lastema)) $lastema["emaLong"]=intrd_ma($emaValues,$emaLong);
+		$lastemas["long"]=round(intrd_ema(end($emaValues),$lastema,$emaLong),2);
 	}
-	if ($emacross and $total>=$emaLong){
-		$c=0;
-		while ($c<=$emaLong){
-			if (isset($F1[($total-$c)])){
-				$valu=$F1[($total-$c)];
-				$valu=explode(",",$valu);
-				$valu=$valu[2];
-				$values[]=$valu;
-			}
-			$c++;
-		}
-		$values=array_reverse($values);
-		if (count($values)>=$emaLong){
-			if ($lastema["long"]==false) $lastema["long"]=intrd_ma($values,$emaLong);
-		 	$emaLongValue=intrd_ema(end($values),$lastema["long"],$emaLong);
-		 	$lastemas["long"]=round($emaLongValue,2);
-		 	if (!isset($lastemas["short"])){
-		 		$lastemas["short"]=false;
-		 	}
-	 	}
-	}
-	$emaShort=$emaSbuffer;
-	$emaLong=$emaLbuffer;
-	if (isset($lastemas)) return $lastemas;
+//	var_dump($lastemas);
+//	die;
+	return $lastemas;
+	
 }
 
 function market_direction($last_minutes,$limbo=false,$ema=false){
@@ -304,7 +282,14 @@ function intrd_ma($prices,$periods){
 }
 
 function intrd_ema($curr_price,$lastema,$periods){
-	$ema= ( ($curr_price * (2/(1+$periods))) + ( $lastema*(1-(2/(1+$periods))) ) );
+	//EMA = Price(t) * k + EMA(y) * (1 – k)
+	//t = current period, y = last period, N = number of periods, k = 2/(N+1)
+	$t=$curr_price;
+	$k=(2/(1+$periods));
+	$y=$lastema;
+	$N=$periods;
+	$ema = $t * $k + $y * (1-$k);
+	//$ema= ( ($curr_price * $multi) + ( $lastema*(1-$multi) ) );
 	if ($ema==false or $ema=="") $ema=$lastema;
 	return $ema;
 }
