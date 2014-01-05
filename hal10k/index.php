@@ -12,7 +12,6 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU General Public License for more details.
 **/
-//include("configs.php"); 
     
 	echo "<center><h1>HAL 10K</h1></center>";
 	$time=date("Y-m-d H:i:s");

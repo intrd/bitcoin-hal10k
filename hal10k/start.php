@@ -56,24 +56,25 @@ while (1==1){
 	$vol=$ticker["ticker_vol"];
 	if ($fake==true and $paper==false) $dt=$ticker["datetime"];
 	
-	if (isset($ema)) unset($ema);
+	//if (isset($ema)) unset($ema);
 	if ($emacross==true) { 
 		$lastema=emarket_direction(); 
 		echo "\r\n*** EMAShort".$lastema["short"];
 		echo " / EMALong".$lastema["long"]."";
 		if (($lastema["short"]>$lastema["long"]) and ($lastema["short"]-$lastema["long"])>$emaDiff) {
 			$ema="up";
-		}
-		if (($lastema["long"]>$lastema["short"]) and ($lastema["long"]-$lastema["short"])>$emaDiff) {
+		}else{
 			$ema="down";
 		}
-		if ($lastema["short"]==null or $lastema["long"]==null){
+		if ($lastema==false){
 			$ema="limbo";
 		}
 	}
-	if ($emacross==true and !isset($ema)) {
-		$ema="limbo";
-	}
+	//echo $ema;
+	//die;
+	//if ($emacross==true and !isset($ema)) {
+	//	$ema="limbo";
+	//}
 
 	$line=$dt.",,".$ticker["ticker_last"].",,,$vol,".$lastema["short"].",".$lastema["long"].",\r\n";
 	$F1=file($datachart);

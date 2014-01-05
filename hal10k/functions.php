@@ -114,10 +114,8 @@ function emarket_direction(){
 		if (!isset($lastValue["emaLong"])) $lastValue["emaLong"]=intrd_ma($prices,$emaLong);
 		$ema["long"]=round(intrd_ema($lastValue["cur"],$lastValue["emaLong"],$emaLong),2);
 		
-		return $ema;
 	}
-//	var_dump($lastemas);
-//	die;
+	if (isset($ema)) { return $ema; } else { return false; }
 	
 }
 
