@@ -1,8 +1,8 @@
 <?php
  /* CAT:Line chart */ 
  /* pChart library inclusions */ 
- include("configs.php"); 
- //include("functions.php");
+ //include("configs.php"); 
+ include("functions.php");
  include("pChart/class/pData.class.php"); 
  include("pChart/class/pDraw.class.php"); 
  include("pChart/class/pImage.class.php"); 
@@ -61,12 +61,12 @@
 	 		if (strlen($value[6]>=2)){
 	 			$data["emaShort"][]=$value[6];
 	 		}else{
-	 			$data["emaShort"][]=VOID;
+	 			$data["emaShort"][]=round($value[2]);
 	 		}
 	 		if (strlen($value[7]>=2)){
 	 			$data["emaLong"][]=$value[7];
 	 		}else{
-	 			$data["emaLong"][]=VOID;
+	 			$data["emaLong"][]=round($value[2]);
 	 		}
 			
 			
@@ -122,6 +122,8 @@
  $myPicture->setFontProperties(array("FontName"=>"pChart/fonts/Forgotte.ttf","FontSize"=>8,"R"=>0,"G"=>0,"B"=>0)); 
  $myPicture->drawText(15,22,"HAL10K by intrd",array("FontSize"=>15,"Align"=>TEXT_ALIGN_BOTTOMLEFT)); 
 
+ //$myPicture->drawText(15,22,"HAL10K by intrd",array("FontSize"=>15,"Align"=>TEXT_ALIGN_BOTTOMLEFT)); 
+
  $myPicture->drawText(450,20,"Período: ".$startdate." - ".$enddate."",array("FontSize"=>13,"Align"=>TEXT_ALIGN_BOTTOMLEFT));
 
  $myPicture->drawText(651,23,$nextmov,array("FontSize"=>13,"Align"=>TEXT_ALIGN_BOTTOMLEFT)); 
@@ -156,7 +158,16 @@
  $MyData->setSerieDrawable("Sell",TRUE); 
  //$myPicture->writeBounds();
  $myPicture->drawLegend(121,10,array("Style"=>LEGEND_NOBORDER,"Mode"=>LEGEND_HORIZONTAL,"FontR"=>0,"FontG"=>0,"FontB"=>0)); 
- 
+
+
+/*	$last=explode(",",end($F1));
+	if ($last[7]<=1) {
+		$least=$emaLong-count($F1);
+		echo "<center>************<br><b>$least/$emaLong</b> periods left to process graphic chart.</br>************</center>";
+	}else{
+		echo "<img src='chart.php";echo "'>";
+	}
+*/
 $myPicture->autoOutput("graph.png"); 
 
 
