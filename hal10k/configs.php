@@ -21,7 +21,7 @@
 	$datadir=$root."/data/";
 
 	/* VERSION */
-	$version="v2.0 beta 1";
+	$version="v2.2 beta 1";
 
 	/* Local data files (No need to change) */
 	$settings=$datadir."settings.ini"; //Filename of runtime settings;
@@ -41,9 +41,9 @@
 	/* Custom trading algoritm parameters */
 	$percentual=0.45; //Minimum percentage of profit on the purchase (Use the current fee applied by MtGox);
 	$bidfee=0.45; //Just for simulation purposes (Use the current fee applied by MtGox);
-	$up_diff=10; //(sell) profit points (in USD) above the purchase price;
+	$up_diff=1; //(sell) profit points (in USD) above the purchase price;
 	$up_diff_inv=5; //(sell) stop loss (in USD) below the purchase price;
-	$down_diff=10; //(buy) profit points (in USD) below the selling price;
+	$down_diff=1; //(buy) profit points (in USD) below the selling price;
 	$down_diff_inv=5; //(buy) stop loss (in USD) above the selling price;
 	$secure_ticker=300.99500; //Security value that prevents the bot to make sales below a certain value;
 	$emacross=true; //Turn on EMA crossover method (if emacross=true, Simple Market Direction Method automatically is turned off);
@@ -91,6 +91,5 @@
 		wfilenew($lastfile_clean,$default_data);
 	}
 
-echo "\r\n### Access hal10k/index.php on your browser to open the HTTP Control Panel."; //COMMENT THIS LINE AT FIRST RUN 
-echo "\r\n### First running? edit these files: configs.php e o hal10k.bat, and comment '//' this line."; sleep(100); //COMMENT THIS LINE AT FIRST RUN 
+echo "\r\n### ATENTION: First running? edit thes file: bitcoin/hal10k/configs.php \r\n### configure parameters and comment '//' this line."; sleep(999); //COMMENT THIS LINE AT FIRST RUN 
 ?>

@@ -126,6 +126,11 @@ This project was developed in the environment described below, so please try to 
    * tmhOAuth for Twitter notifications;  
 
 **Changelog**
+* v2.2 beta 1
+   * - Built-in apache+php pre-configured (1-click-to-run version for Windows)
+   * - Some EMA improvements
+   * - Better graphic chart
+   * - Massive bug fixes
 * v2.1 beta 2
    * - New trading technique implemented: EMA short/long crossover
    * - Paper trading: Differs to Backtesting, its a simulation with Live Tickers but w/ fake money balance.
