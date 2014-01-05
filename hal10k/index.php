@@ -18,7 +18,10 @@ $F1=file($datachart);
 	echo "<center><h1>HAL 10K</h1></center>";
 	$time=date("Y-m-d H:i:s");
 	echo "<center><h3>Time: $time</h3></center>";
-	if (end($F1)<=VOID) {
+	$last=explode(",",end($F1));
+	//var_dump($last[7]);
+	//die;
+	if ($last[7]<=1) {
 		$least=$emaLong-count($F1);
 		echo "<center>************<br><b>$least/$emaLong</b> periods left to process graphic chart.</br>************</center>";
 	}else{
