@@ -21,7 +21,7 @@ After losing some money on Bitcoin exchanges, I decided to develop my own Tradin
 >The author of this project and its contributors are not responsible for any losses.
 
 **1-Click-to-run Version (easy install)**
-* Download here: [hal10k_1click.zip w/ apache+php pre-configured, just run the: start_hal10k.bat](http://dann.com.br/hal10k_1click_apache.php-winx86.zip)
+* Download here: [hal10k_1click.zip](http://dann.com.br/hal10k_1click_apache.php-winx86.zip) w/ apache+php pre-configured, just run the: start_hal10k.bat
 
 ## WEB Control panel & console
 
