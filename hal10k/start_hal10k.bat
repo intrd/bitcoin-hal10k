@@ -18,7 +18,7 @@ pause
 echo Start time is: %date% %TIME%
 
 
-cd \php
-php c:\bitcoin\hal10k\start.php
+cd \xampp\php
+php c:\xampp\htdocs\bitcoin\hal10k\start.php
 
 GOTO Logit
