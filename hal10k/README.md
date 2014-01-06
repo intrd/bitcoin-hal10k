@@ -109,8 +109,9 @@ Bot informing a purchase(loss) made ​​starting from a Sudden Mode remote com
 - MtGox need at least 0.02BTC to process a transaction.
 
 **Todo**
+- Add EUR 
 - Create a version of .bat Windows looping file for Linux using Shell script+crontab 
-- Fake USD balance
+- Fake USD/EUR balance
 - MACD
 - Implement Vircurex and BTC-e API
 - Auto fetch BitcoinCharts data via cUrl
