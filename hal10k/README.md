@@ -52,6 +52,8 @@ Live statistics, "Sudden" and "Death mode" remote control.
 ![](http://dann.com.br/EMAchart2.png)
 >Perfect for high frequency trading, better than simple trading method
 
+![](http://i.imgur.com/LSsmiYK.png)
+
 ## Twitter notifications sample
 
 ![](http://dann.com.br/hal_twitter.png)
