@@ -13,8 +13,11 @@ After losing some money on Bitcoin exchanges, I decided to develop my own Tradin
 
 ####WEB Control panel & console
 Daemon
+
 ![](http://dann.com.br/content/images/2015/08/687474703a2f2f64616e6e2e636f6d2e62722f636f6e736f6c652e706e67-1.png)
+
 Live statistics, "Sudden" and "Death mode" remote control.
+
 ![](http://dann.com.br/content/images/2015/08/687474703a2f2f692e696d6775722e636f6d2f4c53736d69594b2e706e67.png)
 
 
@@ -136,6 +139,6 @@ This project was developed in the environment described below, so please try to 
 * v1.0 beta 2
    * First public version
 
-```
-HAL10K Bitcoin trading bot (CC) copyleft http://dann.com.br - @intrd (Danilo Salles) <contact@dann.com.br> HAL10K is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 2, as published by the Free Software Foundation.
-```
+
+> HAL10K Bitcoin trading bot (CC) copyleft http://dann.com.br - @intrd (Danilo Salles) <contact@dann.com.br> HAL10K is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 2, as published by the Free Software Foundation.
+
