@@ -34,6 +34,14 @@ This project was developed in the environment described below, so please try to 
 - Auto fetch BitcoinCharts API data
 
 ##Changelog
+* v2.4 beta 1 **(not at stable public release yet)**
+   * - php builtin webserver instead apache
+   * - added pivots(support & resistance) analysis
+   * - added MACD analysis
+   * - JS Graphic chart Client Side rendering
+   * - Now fetching past history data before starting bot (works on backtests, live & paper)
+* v2.3 beta 1 **(not at stable public release yet)**
+   * - Fixed critical error at Market Direction decision (always returning MA, not EMA)
 * v2.2 beta 1
    * - Built-in apache+php pre-configured (1-click-to-run version for Windows)
    * - Some EMA improvements
