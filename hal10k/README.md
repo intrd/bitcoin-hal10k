@@ -1,3 +1,5 @@
+# HAL 10K - Bitcoin PHP Trading bot
+
 * [Official post -> HAL 10K @ PHP Bitcoin trading & helper bot](http://dann.com.br/hal-10k-php-trading-helper-bot/)
 * [GitHUB stable Source code](https://github.com/intrd/bitcoin/tree/master/hal10k)
 * [Bitcointalk announcemnt thread](https://bitcointalk.org/index.php?topic=391630)
