@@ -26,7 +26,6 @@ This project was developed in the environment described below, so please try to 
 * [Bitcointalk thread](https://bitcointalk.org/index.php?topic=391630)
 
 ##TodoList
-- MACD
 - Add EUR 
 - Fake USD/EUR balance
 - Implement Vircurex, BTC-e and Bitstamp API
