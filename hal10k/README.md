@@ -7,9 +7,11 @@ After losing some money on Bitcoin exchanges, I decided to develop my own Tradin
 **HAL10K** was developed "from scratch", without taking basis of existing algorithms/trading techniques. This project is a learning exercise on Trading/Economics for me, when started this project my experience was limited in programming and Bitcoin. Yes, I'm already getting real profits with this trading bot, and the idea of ​​Open Source assumed that sharing experiences, together we can greatly improve the algorithm and achieve even greater profits.
 
 ##Installing: 1click-to-run (easy)
-* Download here: [hal10k_1click.zip](http://dann.com.br/hal10k_1click_apache.php-winx86.zip) w/ apache+php pre-configured, just run the: start_hal10k.bat
+* Download here: [hal10k_1click.zip](https://mega.nz/#!3YgVFC7S!KJ2S-T2Z9oXtpdL-gOkiFXBNXpbiolqQDZ1hjo58X_M) w/ apache+php pre-configured, just run the: start_hal10k.bat
 
 ##Installing: manual (advanced)
+**GitHUB stable Source code**: https://github.com/intrd/bitcoin/tree/master/hal10k
+
 Must be configured in *configs.php* and started on *hal10k.bat* (remember to edit *hal10k.bat* to your http server default path: *C:\webserver\www\hal10k*)   
 
 This project was developed in the environment described below, so please try to use a similar configuration
