@@ -1,5 +1,9 @@
 # HAL 10K - PHP Trading & helper bot
 
+* [Official post -> HAL 10K @ PHP Bitcoin trading & helper bot](http://dann.com.br/hal-10k-php-trading-helper-bot/)
+* [GitHUB stable Source code](https://github.com/intrd/bitcoin/tree/master/hal10k)
+* [Bitcointalk announcemnt thread](https://bitcointalk.org/index.php?topic=391630)
+
 After losing some money on Bitcoin exchanges, I decided to develop my own Trading bot/helper. This bot acts with pre-defined parameters based on statistics/strategies and not with the emotion of the moment, so it's much easier to perform trading operations.
 
 **HAL10K** is a Bitcoin trading/helper bot written in PHP (open source). It was developed to be used on the API MtGox, but can be easily adapted to other exchanges. Their decisions are based on customizable parameters and trading techniques for market analysis. It also works in semi-automatic mode, in which each loss(stop-loss) asks via Twitter for remote confirmation of a bot operator. Besides the "Live Trading" so it also runs simulations "Backtesting/Paper trading" using "Fake Balance" and historical raw data from **BitcoinCharts.com**. All bot actions(buying/selling) and alerts(high volume detected) are notified via Twitter. Log results is accompanied by HTTP Control panel where the bot displays its own performance chart panel.
@@ -22,10 +26,6 @@ This project was developed in the environment described below, so please try to 
 * Libs utilizadas (included in the project)
    * pChart 2.1.3 for graphics generation;  
    * tmhOAuth for Twitter notifications;  
-
-##More details & support
-* [Official post -> HAL 10K @ PHP Bitcoin trading & helper bot](http://dann.com.br/hal-10k-php-trading-helper-bot/)
-* [Bitcointalk thread](https://bitcointalk.org/index.php?topic=391630)
 
 ##TodoList
 - Add EUR 
