@@ -13,7 +13,7 @@ After losing some money on Bitcoin exchanges, I decided to develop my own Tradin
 **HAL10K** was developed "from scratch", without taking basis of existing algorithms/trading techniques. This project is a learning exercise on Trading/Economics for me, when started this project my experience was limited in programming and Bitcoin. Yes, I'm already getting real profits with this trading bot, and the idea of ​​Open Source assumed that sharing experiences, together we can greatly improve the algorithm and achieve even greater profits.
 
 >Please, do not go to the Live trading before mastering the paper trading.
->The author of this project and its contributors are not responsible for any losses.
+>The author of this project and its contributors are not responsible for any losses. 
 
 ### Package details
 
