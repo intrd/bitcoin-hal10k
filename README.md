@@ -1,7 +1,7 @@
 # HAL 10K - Bitcoin PHP Trading bot
 
 * [Official post -> HAL 10K @ PHP Bitcoin trading & helper bot](http://dann.com.br/hal-10k-php-trading-helper-bot/)
-* [GitHUB stable Source code](https://github.com/intrd/bitcoin/tree/master/hal10k)
+* [GitHUB stable Source code](https://github.com/intrd/bitcoin-hal10k)
 * [Bitcointalk announcemnt thread](https://bitcointalk.org/index.php?topic=391630)
 
 >### This project are DEPRECATED
@@ -14,6 +14,17 @@ After losing some money on Bitcoin exchanges, I decided to develop my own Tradin
 
 >Please, do not go to the Live trading before mastering the paper trading.
 >The author of this project and its contributors are not responsible for any losses.
+
+### Package details
+
+* package: HAL10K
+* version: 2.2
+* category: bitcoin
+* author: intrd - http://dann.com.br/
+* link: https://github.com/intrd/bitcoin-hal10k
+* see: http://dann.com.br/hal-10k-php-trading-helper-bot/
+* copyright: 2013 intrd
+* license: Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 
 ####WEB Control panel & console
 Daemon

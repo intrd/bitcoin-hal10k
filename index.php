@@ -1,17 +1,20 @@
 <?php
-/** 
-* HAL10K Bitcoin trading bot
-* @copyright (C) http://dann.com.br - @intrd (Danilo Salles) <contact@dann.com.br>
+/**
+ * HAL10K - Bitcoin PHP Trading bot
+ * 
+ * After losing some money on Bitcoin exchanges, I decided to develop my own Trading bot/helper. 
+ * This bot acts with pre-defined parameters based on statistics/strategies and not with the emotion of the moment, so it's much easier to perform trading operations.
+ * 
+* @package HAL10K
+* @version 2.2
+* @category bitcoin
+* @author intrd - http://dann.com.br/
+* @link https://github.com/intrd/bitcoin-hal10k
+* @see http://dann.com.br/hal-10k-php-trading-helper-bot/
+* @copyright 2013 intrd
+* @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 *
-* HAL10K is free software; you can redistribute it and/or
-* modify it under the terms of the GNU General Public License 2
-* as published by the Free Software Foundation.
-* 
-* HAL10K is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-**/
+*/
     
 	echo "<center><h1>HAL 10K</h1></center>";
 	$time=date("Y-m-d H:i:s");
