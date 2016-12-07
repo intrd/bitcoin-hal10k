@@ -5,6 +5,7 @@
 * [Bitcointalk announcemnt thread](https://bitcointalk.org/index.php?topic=391630)
 
 >### This project are DEPRECATED
+..and moved to a closed source project.. https://github.com/intrd/bitcoin-tofybot
 
 After losing some money on Bitcoin exchanges, I decided to develop my own Trading bot/helper. This bot acts with pre-defined parameters based on statistics/strategies and not with the emotion of the moment, so it's much easier to perform trading operations.
 
